@@ -8,114 +8,119 @@ from google.genai import types
 # Carregar variáveis de ambiente
 load_dotenv()
 
-# 1. Inicializar o cliente com a NOVO SDK da Google
-client = genai.Client(api_key=os.getenv("GEMINI_API"))
-modelo_gemini = os.getenv("GEMINI_MODEL")
-
-path_data = Path("data")
-
-# Corrigido: Procurar por todos os arquivos .pdf dentro da pasta data (e subpastas)
-pdfs_path = list(path_data.rglob("*.pdf"))
-
-if not pdfs_path:
-    print("Nenhum arquivo PDF encontrado na pasta 'data'.")
-
 problemas_mapeados = []
 
-for pdf_path in pdfs_path:
-    print(f"\n----------------------------------------")
-    print(f"Processando arquivo: {pdf_path.name}")
+def create_questions(pdfs_path):
+    # 1. Inicializar o cliente com a NOVO SDK da Google
+    client = genai.Client(api_key=os.getenv("GEMINI_API"))
+    modelo_gemini = os.getenv("GEMINI_MODEL")
 
-    # 2. Fazer o upload do arquivo PDF (usando o caminho como string)
-    print("Fazendo upload do PDF para a API...")
-    arquivo_pdf = client.files.upload(file=str(pdf_path))
+    # Corrigido: Procurar por todos os arquivos .pdf dentro da pasta data (e subpastas)
 
-    # 3. Prompt de extração
-    prompt = """
-    Você é um assistente especializado em extrair problemas de programação competitiva de PDFs da Olimpíada Brasileira de Informática (OBI).
-    Leia o arquivo PDF em anexo e extraia os dados de TODOS os problemas que encontrar no documento.
+    if not pdfs_path:
+        print("Nenhum arquivo PDF encontrado na pasta 'data'.")
 
-    Retorne os dados ESTRITAMENTE no formato JSON abaixo, preenchendo com as informações do documento. 
-    A sua resposta deve ser um ARRAY (lista) de objetos JSON, onde cada objeto representa um problema diferente.
-    Não inclua nenhuma formatação markdown (como ```json) ou texto antes/depois do JSON.
+    erros = []
 
-    TEMPLATE ESPERADO:
-    [
-        {
-            "title": "Nome do problema 1",
-            "statement": "Texto completo da descrição do problema (história e regras). Mantenha as quebras de linha usando \\n",
-            "input": "Texto da seção de Entrada",
-            "output": "Texto da seção de Saída",
-            "constraints": "Texto da seção de Restrições",
-            "examples": [
-                {
-                    "input": "exemplo de entrada 1",
-                    "output": "exemplo de saída 1"
-                }
-            ],
-            "imgs": [],
-            "rating": [int: pontuação subtarefa 0, int: pontuação subtarefa 1, ... , int: pontuação subtarefa n],
-            "year": "2024",
-            "level": "PJ",
-            "period": "Fase 3"
-        }
-    ]
-    """
+    for pdf_path in pdfs_path:
+        print(f"\n----------------------------------------")
+        print(f"Processando arquivo: {pdf_path.name}")
 
-    print("Processando o documento com a LLM (isso pode levar um tempo maior por ser o documento todo)...")
+        # 2. Fazer o upload do arquivo PDF (usando o caminho como string)
+        print("Fazendo upload do PDF para a API...")
+        arquivo_pdf = client.files.upload(file=str(pdf_path))
 
-    try:
-        # 4. Fazer a chamada usando a nova estrutura do SDK
-        response = client.models.generate_content(
-            model=modelo_gemini,
-            contents=[arquivo_pdf, prompt],
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json"
-            )
-        )
+        # 3. Prompt de extração
+        prompt = """
+        Você é um assistente especializado em extrair problemas de programação competitiva de PDFs da Olimpíada Brasileira de Informática (OBI).
+        Leia o arquivo PDF em anexo e extraia os dados de TODOS os problemas que encontrar no documento.
 
-        # 5. Converter o texto retornado para uma lista Python (Array de dicionários)
-        dados_json = json.loads(response.text)
-        # Verifica quantos problemas foram extraídos
-        quantidade_problemas = len(dados_json) if isinstance(
-            dados_json, list) else 0
-        print(
-            f"Foram encontrados e extraídos {quantidade_problemas} problemas.")
+        Retorne os dados ESTRITAMENTE no formato JSON abaixo, preenchendo com as informações do documento. 
+        A sua resposta deve ser um ARRAY (lista) de objetos JSON, onde cada objeto representa um problema diferente.
+        Não inclua nenhuma formatação markdown (como ```json) ou texto antes/depois do JSON.
 
-        for output_json in dados_json:
-            
-            output_path = Path(f"output/{output_json['title']}")
-            
-            if output_path.exists():
-                arquivo_antigo = output_path / "problem.json"
-                
-                if arquivo_antigo.exists():
-                    with open(arquivo_antigo, "r", encoding="utf-8") as f:
-                        aux = json.load(f)
+        TEMPLATE ESPERADO:
+        [
+            {
+                "title": "Nome do problema 1",
+                "statement": "Texto completo da descrição do problema (história e regras). Mantenha as quebras de linha usando \\n",
+                "input": "Texto da seção de Entrada",
+                "output": "Texto da seção de Saída",
+                "constraints": "Texto da seção de Restrições",
+                "examples": [
+                    {
+                        "input": "exemplo de entrada 1",
+                        "output": "exemplo de saída 1"
+                    }
+                ],
+                "imgs": [],
+                "rating": [int: pontuação subtarefa 0, int: pontuação subtarefa 1, ... , int: pontuação subtarefa n],
+                "year": "2024",
+                "level": "PJ",
+                "period": "Fase 3",
+                "difficulty": (Você tem 3 opções: Fácil, Médio, Difícil. Só pode escolher uma por exemplo "Difícil")
+            }
+        ]
+        """
 
-                    if aux['year'] != output_json['year']:
-                        output_path = Path(f"output/{output_json['title']}_{output_json['year']}")
-                
-            output_path.mkdir(parents=True, exist_ok=True)
-            problemas_mapeados.append(output_json['year'], output_json['title'])
-            
-            with open(f"{str(output_path)}/problem.json", "w", encoding="utf-8") as f:
-                json.dump(output_json, f, indent=4, ensure_ascii=False)
+        print("Processando o documento com a LLM (isso pode levar um tempo maior por ser o documento todo)...")
 
-            print(f"Sucesso! O arquivo '{output_json['title']}' foi gerado.")
-
-    except json.JSONDecodeError:
-        print("Erro: A API não retornou um JSON válido.")
-        print("Resposta bruta:", response.text)
-    except Exception as e:
-        print(f"Erro inesperado durante o processamento: {e}")
-    finally:
-        # 7. Limpar o arquivo da API para não consumir armazenamento desnecessário
         try:
-            client.files.delete(name=arquivo_pdf.name)
-            print("Arquivo removido dos servidores da Google.")
-        except:
-            pass
+            # 4. Fazer a chamada usando a nova estrutura do SDK
+            response = client.models.generate_content(
+                model=modelo_gemini,
+                contents=[arquivo_pdf, prompt],
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json"
+                )
+            )
+
+            # 5. Converter o texto retornado para uma lista Python (Array de dicionários)
+            dados_json = json.loads(response.text)
+            # Verifica quantos problemas foram extraídos
+            quantidade_problemas = len(dados_json) if isinstance(
+                dados_json, list) else 0
+            print(
+                f"Foram encontrados e extraídos {quantidade_problemas} problemas.")
+
+            for output_json in dados_json:
+                
+                output_path = Path(f"output/{output_json['title']}")
+                
+                if output_path.exists():
+                    arquivo_antigo = output_path / "problem.json"
+                    
+                    if arquivo_antigo.exists():
+                        with open(arquivo_antigo, "r", encoding="utf-8") as f:
+                            aux = json.load(f)
+
+                        if aux['year'] != output_json['year']:
+                            output_path = Path(f"output/{output_json['title']}_{output_json['year']}")
+                    
+                output_path.mkdir(parents=True, exist_ok=True)
+                problemas_mapeados.append((output_json['year'], output_json['title']))
+                
+                with open(f"{str(output_path)}/problem.json", "w", encoding="utf-8") as f:
+                    json.dump(output_json, f, indent=4, ensure_ascii=False)
+
+                print(f"Sucesso! O arquivo '{output_json['title']}' foi gerado.")
+            
+        except json.JSONDecodeError:
+            print("Erro: A API não retornou um JSON válido.")
+            print("Resposta bruta:", response.text)
+            erros.append(pdf_path)
+        except Exception as e:
+            print(f"Erro inesperado durante o processamento: {e}")
+            erros.append(pdf_path)
+        finally:
+            # 7. Limpar o arquivo da API para não consumir armazenamento desnecessário
+            try:
+                client.files.delete(name=arquivo_pdf.name)
+                print("Arquivo removido dos servidores da Google.")
+            except:
+                pass
+    
+    return erros
 
 
 def atualizar_readme():
@@ -206,6 +211,14 @@ O processo de construção desta base de dados é **híbrido**:
 
     print("Sucesso! README.md atualizado de forma dinâmica para todos os anos inseridos.")
 
+path_data = Path("data")
+pdfs_path = list(path_data.rglob("*.pdf"))
+
+while True:    
+    pdfs_path = create_questions(pdfs_path=pdfs_path)
+    
+    if len(pdfs_path) == 0:
+        break
 
 # Chamar a função de atualização no final do script
 atualizar_readme()
