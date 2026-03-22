@@ -1,0 +1,25 @@
+{
+    "title": "Computador",
+    "statement": "Uma grande empresa está construindo uma nova arquitetura de computadores que permita a execução eficiente de duas instruções especiais de soma. O computador possui N posições de memória, endereçadas de 1 a N, e cada posição pode guardar um inteiro maior ou igual a zero. Inicialmente, todas as posições contêm o valor zero. As instruções especiais de soma são:\n\n• FRENTE i V: Dado o endereço i, 1 ≤ i ≤ N, e um valor positivo V, o computador deve somar V na posição i, V – 1 em i + 1, V - 2 em i + 2, etc, enquanto o valor a ser somando for maior do que zero e a posição for menor ou igual a N;\n\n• TRÁS i V: Dado o endereço i, 1 ≤ i ≤ N, e um valor positivo V, o computador deve somar V na posição i, V – 1 em i − 1, V - 2 em i - 2, etc, enquanto o valor a ser somando for maior do que zero e a posição for maior ou igual a 1.\n\nPor exemplo, para N = 16, uma possível sequência de instruções é dada abaixo:\n\n[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]\nFRENTE 4 8\n[0 0 0 8 7 6 5 4 3 2 1 0 0 0 0 0]\nTRÁS 16 3\n[0 0 0 8 7 6 5 4 3 2 1 0 0 1 2 3]\nTRÁS 2 12\n[11 12 0 8 7 6 5 4 3 2 1 0 0 1 2 3]\nFRENTE 8 7\n[11 12 0 8 7 6 5 11 9 7 5 3 2 2 2 3]\n\nAlém disso, o computador possui a instrução IMPRIME i, que deve imprimir na saída o valor atual armazenado na posição i da memória.\n\nDados N e uma sequência de M instruções, seu programa deve imprimir, para cada instrução do tipo IMPRIME i, uma linha contendo o valor armazenado na posição de memória i no instante da execução da instrução.",
+    "input": "A primeira linha da entrada contém dois inteiros N e M, representando o número de posições de memória e o número de instruções, respectivamente. As M linhas seguintes contêm, cada uma, a descrição de uma instrução em uma de três formas possíveis: 1 I V, representando FRENTE I V; 2 I V, representando TRÁS I V; e 3 I, representando IMPRIME I.",
+    "output": "Para cada instrução do tipo IMPRIME i, seu programa deve imprimir uma linha contendo um inteiro representando o valor armazenado na posição de memória i no instante da execução da instrução.",
+    "constraints": "• 1 ≤ N ≤ 200000;\n• 1 ≤ M ≤ 200000;\n• 1 ≤ I ≤ N;\n• 1 ≤ V ≤ 200000;\n• Ao menos uma instrução será do tipo 3.",
+    "examples": [
+        {
+            "input": "16 7\n1 4 8\n2 16 3\n3 14\n2 2 12\n1 8 7\n3 10\n3 14",
+            "output": "1\n7\n2"
+        },
+        {
+            "input": "200000 2\n1 2345 193290\n3 112230",
+            "output": "83405"
+        }
+    ],
+    "imgs": [],
+    "rating": [
+        20
+    ],
+    "year": "2019",
+    "level": "Sênior",
+    "period": "Fase Nacional",
+    "difficulty": "Difícil"
+}

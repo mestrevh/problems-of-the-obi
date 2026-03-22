@@ -1,0 +1,27 @@
+{
+    "title": "Cálculo rápido",
+    "statement": "Algumas pessoas conseguem fazer cálculos matemáticos com uma velocidade impressionante. Laurinha tem essa habilidade! Um cálculo que ela consegue fazer muito rapidamente é, dados três números inteiros S, A, e B, determinar quantos números do intervalo [A, B] têm a soma de seus dígitos igual a S.\n\nPor exemplo, se S = 3, A = 10 e B = 30, então a reposta é 3, pois existem três números no intervalo [10, 30] cuja soma dos dígitos é igual a três: 12, 21 e 30.\n\nSua tarefa é escrever um programa de computador para, dados os três números, tentar calcular a resposta mais rapidamente do que Laurinha consegue.",
+    "input": "A primeira linha da entrada contém um número inteiro S, o valor da soma dos dígitos. A segunda e a terceira linhas contêm respectivamente os inteiros A e B.",
+    "output": "Seu programa deve produzir uma única linha, contendo um único inteiro, quantos números no intervalo dado têm a soma de dígitos indicada.",
+    "constraints": "• 1 ≤ S ≤ 36\n• 1 ≤ A ≤ 10000\n• 1 ≤ B ≤ 10000\n• A ≤ B",
+    "examples": [
+        {
+            "input": "3\n10\n30",
+            "output": "3"
+        },
+        {
+            "input": "15\n1\n20",
+            "output": "0"
+        },
+        {
+            "input": "1\n1\n10000",
+            "output": "5"
+        }
+    ],
+    "imgs": [],
+    "rating": [],
+    "year": "2021",
+    "level": "Nível 2",
+    "period": "Fase 2 (Turno B)",
+    "difficulty": "Fácil"
+}

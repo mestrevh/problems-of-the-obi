@@ -1,0 +1,23 @@
+{
+    "title": "Dario e Xerxes",
+    "statement": "A brincadeira da Pedra, Papel e Tesoura, muita gente conhece. Mas dá para fazer uma mais legal com cinco opções e não só três! Dois jogadores, dario e xerxes, jogam uma partida com N rodadas. Em cada rodada os jogadores escolhem uma \"mão” entre cinco opções, que vamos representar aqui com os números 0, 1, 2, 3 e 4. A figura define exatamente quem ganha a rodada. As regras de vitória são: 0 vence 2 e 4; 1 vence 0 e 3; 2 vence 1 e 4; 3 vence 2 e 0; 4 vence 3 e 1. Por exemplo, se dario escolheu 0 e xerxes escolheu 3, então xerxes ganha a rodada.\n\nDepois de N rodadas, o vencedor da partida é o jogador que ganhou mais rodadas. O número N será sempre ímpar, para não haver empate na partida. Vamos também considerar que os jogadores nunca escolhem a mesma mão numa rodada, para não haver empate na rodada. Você deve escrever um programa que determine quem venceu a partida, se foi dario ou xerxes.",
+    "input": "A primeira linha da entrada contém um inteiro N, o número de rodadas na partida. Cada uma das N linhas seguintes contém dois inteiros D e X, representando a mão que os jogadores dario e xerxes, respectivamente, jogaram em uma rodada.",
+    "output": "Seu programa deve imprimir uma linha contendo o nome do jogador que venceu a partida: dario ou xerxes. Todas as letras devem ser minúsculas, sem nenhum acento!",
+    "constraints": "• 1 ≤ N ≤ 999, N é ímpar\n• 0 ≤ D, X ≤ 4 e D ≠ X",
+    "examples": [
+        {
+            "input": "3\n1 3\n4 2\n0 2",
+            "output": "dario"
+        },
+        {
+            "input": "1\n3 1",
+            "output": "xerxes"
+        }
+    ],
+    "imgs": [],
+    "rating": [],
+    "year": "2017",
+    "level": "Nível 2",
+    "period": "Fase 2",
+    "difficulty": "Fácil"
+}

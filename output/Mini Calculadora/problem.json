@@ -1,0 +1,30 @@
+{
+    "title": "Mini Calculadora",
+    "statement": "Arthur é um menino pobre, e por isso tudo o que ele tem é de qualidade inferior. Mas Arthur é uma pessoa muito inteligente e dedicada, e portanto está na escola, para poder ter uma boa educação e conseguir mudar essa situação. Atualmente, Arthur está estudando divisão, na matéria de matemática. Na hora fazer exercícios, os alunos fazem uso de uma calculadora para verificar se o que fizeram está correto. Como sabemos, Arthur não tem muito dinheiro, logo a calculadora que ele tem não é muito boa – ela reconhece apenas números pequenos.\n\nArthur, por ser inteligente, consegue, na maioria das vezes, contornar esse problema de uma maneira muito perspicaz. Por exemplo, suponha que Arthur precise fazer o calculo da divisão 200/90 (duzentos dividido por noventa). Ele sabe que se dividir o dividendo e o divisor por 10, o resultado continuará o mesmo. Então, ele faz o cálculo de 20/9, e consegue o resultado desejado (você pode supor que, mesmo que o resultado não seja um número inteiro, ele será mostrado pela calculadora).\n\nArthur, porém, começou a estudar outras matérias mais avançadas, como multiplicação e geometria, e já não tem tanto tempo livre para descobrir maneiras de fazer divisões em sua calculadora. Ele pede a sua ajuda para fazer um programa que, dados o valor máximo que sua calculadora consegue representar, o dividendo e o divisor, determina a melhor maneira de se calcular a divisão em sua calculadora. Note que a melhor maneira é aquela em que o dividendo e o divisor são os menores possíveis, podem ser representados na calculadora e o resultado é exatamente o mesmo que o da divisão desejada.",
+    "input": "A entrada contém um único teste, a ser lido da entrada padrão. O teste contém uma linha com três inteiros C, D, Q (1 < C < 1000, 1 < D < 1000, 2 < Q < 1000) indicando, respectivamente, o valor máximo que pode ser representado na calculadora, o dividendo e o divisor da conta que Arthur precisa fazer.",
+    "output": "Seu programa deve imprimir, na saída padrão, uma única linha, mostrando a melhor maneira possível de se efetuar a divisão na calculadora de Arthur. A linha deve conter dois números inteiros R e P, separados por um espaço em branco, onde R é o novo dividendo e P é o novo divisor. Se for impossível realizar essa divisão na calculadora dada, imprima a palavra ‘IMPOSSIVEL (maiúsculas, sem acento).",
+    "constraints": "Informações sobre a pontuação\n\n• Em um conjunto de casos de teste que totaliza 30 pontos, C ≤ 10, D < 10 e Q ≤ 10.\n\n• Em um conjunto de casos de teste que totaliza 55 pontos, D ≤ 100, D ≤ 100 e Q ≤ 100.",
+    "examples": [
+        {
+            "input": "30 200 90",
+            "output": "20 9"
+        },
+        {
+            "input": "16 62 58",
+            "output": "IMPOSSIVEL"
+        },
+        {
+            "input": "100 31 29",
+            "output": "31 29"
+        }
+    ],
+    "imgs": [],
+    "rating": [
+        30,
+        55
+    ],
+    "year": "2008",
+    "level": "Nível Júnior",
+    "period": "Fase 2",
+    "difficulty": "Médio"
+}

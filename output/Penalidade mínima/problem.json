@@ -1,0 +1,27 @@
+{
+    "title": "Penalidade mínima",
+    "statement": "A Sra. Bastos é uma elaboradora de passatempos matemáticos e pediu para que você criasse um programa que conseguisse jogar de forma eficiente a sua mais nova criação.\nO jogo consiste em um tabuleiro formado por casas dispostas em N linhas por N colunas. Cada casa contém um inteiro não-negativo. No começo do jogo, uma peça é colocada na casa localizada no canto superior esquerdo, ou seja, na posição (1,1). O objetivo do jogo é mover a peça até a casa localizada no canto inferior direito (posição (N,N)) somente movendo um único quadrado para baixo ou para a direita em cada passo. Além disso, a peça não pode ser colocada em nenhum quadrado que contenha o número zero.\nO custo do caminho utilizado para percorrer o tabuleiro corresponde ao produto de todos os números das casas percorridos no caminho. A penalidade é definida utilizando a representação decimal do custo, sendo representada pelo número de dígitos zeros, contados da direita para a esquerda, antes do primeiro dígito diferente de zero. Por exemplo, um custo igual a 501000 tem penalidade 3, e um custo igual a 501 tem penalidade zero.\nO objetivo do jogo é conseguir chegar à casa (N,N) através de um caminho \"otimizado\". Dizemos que o caminho foi otimizado se a penalidade for mínima.\n\nTarefa\n\nEscreva um programa que, dado um tabuleiro, determine a penalidade do custo otimizado.",
+    "input": "A entrada contém um único conjunto de testes, que deve ser lido do dispositivo de entrada padrão (normalmente o teclado). A primeira linha da entrada contém um inteiro N que indica o número de linhas e colunas do tabuleiro (1 ≤ N ≤ 1000). As N linhas seguintes contêm N inteiros I cada (1 ≤ I ≤ 1000000), que representam o valor da casa do tabuleiro naquela posição. Existe pelo menos uma solução possível para todos os casos de teste.",
+    "output": "Seu programa deve imprimir, na saída padrão, uma única linha, contendo a penalidade do custo \"otimizado\".",
+    "constraints": "1 ≤ N ≤ 1000\n1 ≤ I ≤ 1000000",
+    "examples": [
+        {
+            "input": "3\n1 2 3\n4 5 6\n7 8 9",
+            "output": "0"
+        },
+        {
+            "input": "3\n5 7 6\n4 0 1\n3 2 5",
+            "output": "1"
+        },
+        {
+            "input": "4\n1 3 0 0\n0 8 2 25\n6 5 0 3\n0 15 7 4",
+            "output": "2"
+        }
+    ],
+    "imgs": [],
+    "rating": [],
+    "year": "2006",
+    "level": "Nível 2",
+    "period": "Fase Nacional",
+    "difficulty": "Médio"
+}

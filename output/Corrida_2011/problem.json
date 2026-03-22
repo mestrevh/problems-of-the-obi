@@ -1,0 +1,23 @@
+{
+    "title": "Corrida",
+    "statement": "A escola de Joãozinho tradicionalmente organiza uma corrida ao redor do prédio. Como todos os alunos são convidados a participar e eles estudam em períodos diferentes, é difícil que todos corram ao mesmo tempo.\n\nPara contornar esse problema, os professores cronometram o tempo que cada aluno demora para dar cada volta ao redor da escola, e depois comparam os tempos para descobrir a classificação final.\n\nSua tarefa é, sabendo o número de competidores, o número de voltas de que consistiu a corrida e os tempos de cada aluno competidor, descobrir quem foi o aluno vencedor, para que ele possa receber uma medalha comemorativa.",
+    "input": "A primeira linha da entrada contém dois inteiros N e M representando o número de competidores e o número de voltas da corrida, respectivamente.\n\nCada uma das N linhas seguintes representa um competidor: a primeira linha representa o primeiro competidor, a segunda linha representa o segundo competidor, e assim por diante. Cada linha contém M inteiros representando os tempos em cada volta da corrida: o primeiro inteiro é o tempo da primeira volta, o segundo inteiro é o tempo da segunda volta, e assim por diante.\n\nGarante-se que não houve dois competidores que gastaram o mesmo tempo para completar a corrida inteira.",
+    "output": "A saída consiste de um único inteiro, que corresponde ao número do competidor que ganhou a corrida.",
+    "constraints": "• 2 ≤ N ≤ 100\n• 1 ≤ M ≤ 100\n• 1 ≤ qualquer número da entrada que represente o tempo de uma volta ≤ 10⁶",
+    "examples": [
+        {
+            "input": "2 1\n5\n7",
+            "output": "1"
+        },
+        {
+            "input": "3 3\n3 5 6\n1 2 3\n1 1 1",
+            "output": "3"
+        }
+    ],
+    "imgs": [],
+    "rating": [],
+    "year": "2011",
+    "level": "Júnior",
+    "period": "Fase 1",
+    "difficulty": "Fácil"
+}

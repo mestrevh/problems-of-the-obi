@@ -1,0 +1,31 @@
+{
+    "title": "Anagrama",
+    "statement": "Uma palavra A é um anagrama de outra palavra B se podemos transformar a palavra A na palavra B apenas trocando de posição as letras da palavra A. Por exemplo, “iracema” é um anagrama de \"america\", e \"estudo\" é um anagrama de \"duetos”.\n\nPodemos estender o conceito de anagramas para frases, desconsiderando caracteres que não são letras, apenas separam as palavras da frase. Assim, por exemplo, “porta coral\" é um anagrama de \"claro trapo\". Também não é necessário que a palavra exista em alguma língua: “aca aaa bb b\" é um anagrama de \"ba.ba,aab ac\".\n\nDadas duas frases, escreva um programa para determinar se elas são anagramas.",
+    "input": "A primeira linha da entrada contém um inteiro N, indicando o número de letras e espaços das frases. As duas linhas seguintes contêm respectivamente a frase A e a frase B, cada linha contendo exatamente N caracteres, entre letras, espaços em branco, vírgulas e pontos.",
+    "output": "Seu programa deve produzir uma única linha, contendo um único caractere, que deve ser S se a frase for um anagrama ou N caso contrário.",
+    "constraints": "• 1 ≤ N ≤ 200\n• Os únicos caracteres em A e B são letras minúsculas, espaços em branco, vírgulas e pontos.",
+    "examples": [
+        {
+            "input": "11\nporta coral\nclaro trapo",
+            "output": "S"
+        },
+        {
+            "input": "1\na\nb",
+            "output": "N"
+        },
+        {
+            "input": "12\naca aaa bb b\nba.ba,aab ac",
+            "output": "S"
+        },
+        {
+            "input": "2\na\naa",
+            "output": "N"
+        }
+    ],
+    "imgs": [],
+    "rating": [],
+    "year": "2021",
+    "level": "Júnior",
+    "period": "Fase 2",
+    "difficulty": "Médio"
+}

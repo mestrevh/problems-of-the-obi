@@ -1,0 +1,27 @@
+{
+    "title": "Sub-seqüências",
+    "statement": "Uma subseqüência de uma seqüência de caracteres S é definida como uma seqüência de caracteres de S, não necessariamente consecutivos, na mesma ordem em que eles ocorrem na seqüência original.\nDadas duas seqüências de caracteres, S₁ e S₂, dizemos que S₁ possui grau N de independência em relação a S₂ se, dada qualquer subseqüência de tamanho N de S₁, não é possível formar tal subseqüência a partir de S₂.\nPor exemplo, o grau de independência da seqüência S₁='ababaa' em relação à seqüência S₂='abbaa' é igual a 3, pois todas as subseqüências de S₁ de tamanho 1 ('a', 'b') e todas as subseqüências de tamanho 2 ('aa', 'ab', 'ba', 'bb') podem ser formadas a partir de S₂, mas a subseqüência 'bab', de tamanho 3, não pode ser formada a partir de S₂.\n\nTarefa\n\nEscreva um programa que, dadas duas seqüências S₁ e S₂, determine o grau N de independência de S₁ em relação a S₂.",
+    "input": "A entrada contém um único conjunto de testes, que deve ser lido do dispositivo de entrada padrão (normalmente o teclado). A entrada contém três linhas. A primeira linha contém dois inteiros N e M que indicam respectivamente o comprimento da seqüência S₁ (1 <= N <= 2000) e o comprimento da seqüência S₂ (1 <= M <= 2000). A segunda linha contém a seqüência S₁ e a terceira linha contém a seqüência S₂. As seqüências são formadas somente pelas letras minúsculas sem acento ('a' - 'z'). As seqüências possuem no máximo 2000 caracteres. Sempre existe uma solução para os casos de teste fornecidos.",
+    "output": "Seu programa deve imprimir, na saída padrão, uma única linha, conténdo o grau N de indepedência de S₁ em relação a S₂.",
+    "constraints": "1 <= N <= 2000\n1 <= M <= 2000",
+    "examples": [
+        {
+            "input": "6 5\nababaa\nabbaa",
+            "output": "3"
+        },
+        {
+            "input": "5 5\nbabab\nbabba",
+            "output": "3"
+        },
+        {
+            "input": "6 11\nbanana\nanbnaanbaan",
+            "output": "5"
+        }
+    ],
+    "imgs": [],
+    "rating": [],
+    "year": "2006",
+    "level": "Nível 2",
+    "period": "Fase Nacional",
+    "difficulty": "Difícil"
+}

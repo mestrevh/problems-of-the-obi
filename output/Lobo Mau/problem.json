@@ -1,0 +1,27 @@
+{
+    "title": "Lobo Mau",
+    "statement": "Na fazenda do Sr. Amarante existe um certo número de ovelhas. Enquanto elas estão dormindo profundamente, alguns lobos famintos tentam invadir a fazenda e atacar as ovelhas. Ovelhas normais ficariam indefesas diante de tal ameaça, mas felizmente as ovelhas do Sr. Amarante são praticantes de artes marciais e conseguem defender-se adequadamente.\nA fazenda possui um formato retangular e consiste de campos arranjados em linhas e colunas. Cada campo pode conter uma ovelha (representada pela letra 'k'), um lobo (letra 'v'), uma cerca (símbolo ‘#') ou simples-mente estar vazio (símbolo '.'). Consideramos que dois campos pertencem a um mesmo pasto se podemos ir de um campo ao outro através de um caminho formado somente com movimentos horizontais ou verticais, sem passar por uma cerca. Na fazenda podem existir campos vazios que não pertencem a nenhum pasto. Um campo vazio não pertence a nenhum pasto se é possível \"escapar\" da fazenda a partir desse campo (ou seja, caso exista um caminho desse campo até a borda da fazenda).\nDurante a noite, as ovelhas conseguem combater os lobos que estão no mesmo pasto, da seguinte forma: se em um determinado pasto houver mais ovelhas do que lobos, as ovelhas sobrevivem e matam todos os lobos naquele pasto. Caso contrário, as ovelhas daquele pasto são comidas pelos lobos, que sobrevivem. Note que caso um pasto possua o mesmo número de lobos e ovelhas, somente os lobos sobreviverão, já que lobos são predadores naturais, ao contrário de ovelhas.\n\nTarefa\nEscreva um programa que, dado um mapa da fazenda do Sr. Amarante indicando a posição das cercas, ovelhas e lobos, determine quantas ovelhas e quantos lobos estarão vivos na manhã seguinte.",
+    "input": "A entrada contém um único conjunto de testes, que deve ser lido do dispositivo de entrada padrão (normalmente o teclado). A primeira linha da entrada contém dois inteiros R e C que indicam o número de linhas (3 < R ≤ 250) e de colunas (3 < C ≤ 250) de campos da fazenda. Cada uma das R linhas seguintes contém C caracteres, representando o contéudo do campo localizado naquela linha e coluna (espaço vazio, cerca, ovelha ou lobo).",
+    "output": "Seu programa deve imprimir, na saída padrão, uma única linha, contendo dois inteiros, sendo que o primeiro representa o número de ovelhas e o segundo representa o número de lobos que ainda estão vivos na manhã seguinte.",
+    "constraints": "3 < R ≤ 250\n3 < C ≤ 250",
+    "examples": [
+        {
+            "input": "6 6\n...#..\n.##v#.\n#v.#.#\n#.k#.#\n.###.#\n...###",
+            "output": "0 2"
+        },
+        {
+            "input": "8 8\n.######.\n#..k...#\n#.####.#\n#.#v.#.#\n#.#.k#k#\n#k.##..#\n#.v..v.#\n.######.",
+            "output": "3 1"
+        },
+        {
+            "input": "9 12\n.###.#####..\n#.kk#...#v#.\n#..k#.#.#.#.\n#..###...#.\n#.#v#k###.#.\n#..##....#.\n#...v#v####.\n.####.#vv.k#\n.......####",
+            "output": "3 5"
+        }
+    ],
+    "imgs": [],
+    "rating": [],
+    "year": "2006",
+    "level": "Nível 1",
+    "period": "Fase Nacional",
+    "difficulty": "Médio"
+}

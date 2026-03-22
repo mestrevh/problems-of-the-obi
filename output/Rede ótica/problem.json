@@ -1,0 +1,28 @@
+{
+    "title": "Rede ótica",
+    "statement": "Os caciques da região de Tutuaçu pretendem integrar suas tribos à chamada “aldeia global”. A primeira providência foi a distribuição de telefones celulares a todos os pajés. Agora, planejam montar uma rede de fibra ótica interligando todas as tabas. Esta empreitada requer que sejam abertas novas picadas na mata, passando por reservas de flora e fauna. Conscientes da necessidade de preservar o máximo possível o meio ambiente, os caciques encomendaram um estudo do impacto ambiental do projeto. Será que você consegue ajudá-los a projetar a rede de fibra ótica?\n\n1. Tarefa\nVamos denominar uma ligação de fibra ótica entre duas tabas de um ramo de rede. Para possibilitar a comunicação entre todas as tabas é necessário que todas elas estejam interligadas, direta (utilizando um ramo de rede) ou indiretamente (utilizando mais de um ramo). Os caciques conseguiram a informação do impacto ambiental que causará a construção dos ramos. Alguns ramos, no entanto, nem foram considerados no estudo ambiental, pois sua construção é impossível.\n\nSua tarefa é escrever um programa para determinar quais ramos devem ser construídos, de forma a possibilitar a comunicação entre todas as tabas, causando o menor impacto ambiental possível.",
+    "input": "A entrada é composta de vários conjuntos de teste. A primeira linha de um conjunto de teste contém dois números inteiros positivos N e M que indicam, respectivamente, o número de tabas e o número de ramos de redes possíveis. As tabas são numeradas de 1 a N. As M linhas seguintes contêm três inteiros positivos X, Y e Z, que indicam que o ramo de rede que liga a taba X à taba Y tem impacto ambiental Z. Com os conjuntos de teste dados sempre é possível interligar todas as tabas. O final da entrada é indicado quando N = 0.",
+    "output": "Para cada conjunto de teste da entrada seu programa deve produzir uma lista dos ramos de redes que devem ser construídos. A lista deve ser precedida de uma linha que identifica o conjunto de teste, no formato \"Teste n\", onde n é numerado a partir de 1. A lista é composta por uma sequência de ramos a serem construídos, um ramo por linha. Um ramo é descrito por um par de tabas X e Y, com X < Y. Os ramos de rede podem ser listados em qualquer ordem, mas não deve haver repetição. Se houver mais de uma solução possível, imprima apenas uma delas. O final de uma lista de ramos deve ser marcado com uma linha em branco. A grafia mostrada no Exemplo de Saída, abaixo, deve ser seguida rigorosamente.",
+    "constraints": "0 ≤ N ≤ 100 (N = 0 apenas para indicar o fim da entrada)\n1 ≤ M ≤ N(N-1)/2\n1 ≤ X ≤ 100\n1 ≤ Y ≤ 100\n1 ≤ Z ≤ 100",
+    "examples": [
+        {
+            "input": "3 3\n1 2 10\n2 3 10\n3 1 10\n5 6\n1 2 15\n1 3 12\n2 4 13\n2 5 5\n3 2 6\n3 4 6\n0 0",
+            "output": "Teste 1\n1 2\n1 3\n\nTeste 2\n1 3\n2 3\n2 5\n3 4"
+        }
+    ],
+    "imgs": [
+        {
+            "url": null,
+            "alt": "Diagrama mostrando um grafo com 5 nós e 6 arestas com pesos, intitulado 'Ramos de rede possíveis com custo ambiental associado'."
+        },
+        {
+            "url": null,
+            "alt": "Diagrama mostrando um subgrafo do anterior, uma árvore com 5 nós e 4 arestas com pesos, intitulado 'Interligação das tabas com menor custo ambiental'."
+        }
+    ],
+    "rating": [],
+    "year": "2000",
+    "level": null,
+    "period": null,
+    "difficulty": "Médio"
+}

@@ -1,0 +1,27 @@
+{
+    "title": "Conversa não tão secreta",
+    "statement": "A polícia desconfia que dois homens que passeiam todos os dias pelo parque são na verdade criminosos. O parque é plano, de formato retangular, e estreitas faixas de grama o dividem em quadrados de mesmo tamanho, formando uma grade de N por M quadrados.\nOs dois homens têm um comportamento curioso e suspeito em seu passeio: após encontrarem-se, conversam durante um minuto, andam mudando rapidamente de lugar, passando a ocupar um novo quadrado do parque, conversam mais um minuto, andam novamente (mudando de quadrado), conversam mais um minuto, e assim sucessivamente. A cada minuto escolhem uma direção (Norte, Sul, Leste ou Oeste) e andam até o quadrado imediatamente vizinho na direção escolhida.\nTentando escutar trechos das conversas dos homens, a polícia instalou um pequeno microfone multi-direcional em um dos quadrados do parque. O microfone é capaz de captar conversas realizadas no quadrado onde está instalado e em todos os quadrados imediatamente vizinhos.\nOs dois homens sempre iniciam o passeio no quadrado de coordenadas (0,0).\n\nTarefa\n\nDadas as coordenadas do microfone e a seqüência de movimentos que os dois homens realizaram durante seu passeio no parque, seu programa deve determinar quantos minutos de conversa foram captados pelo microfone.",
+    "input": "A entrada contém um único conjunto de testes, que deve ser lido do dispositivo de entrada padrão (normalmente o teclado). A primeira linha contém dois inteiros N e M que indicam respectivamente o número de linhas e o número de colunas do parque (0 ≤ N ≤ 100000 e 0 ≤ M < 100000). A segunda linha contém dois inteiros X e Y que indicam a coordenada do microfone em termos de linhas e colunas (0 ≤ X ≤ N e 0 ≤ Y < M). A terceira linha contém um inteiro K, indicando o número de quadrados pelos quais os dois homens passearam. A quarta linha contém K inteiros, entre 1,2,3,4, que indicam a rota tomada pelos dois homens durante o passeio; cada inteiro indica a direção tomada ao final de um minuto de conversa, com 1 representando o Norte, 2 representando o Sul, 3 representando o Leste e 4 representando o Oeste.",
+    "output": "Seu programa deve imprimir, na saída padrão, uma única linha contendo um inteiro: o número de minutos de conversação captados pelo microfone.",
+    "constraints": "0 ≤ N ≤ 1000000\n0 ≤ M < 1000000\n0 ≤ X ≤ N\n0 ≤ Y < M\nK é o número de movimentos (o limite de K não é especificado).\nMovimentos são inteiros de 1 a 4.",
+    "examples": [
+        {
+            "input": "10 10\n2 2\n3\n3 3 3",
+            "output": "0"
+        },
+        {
+            "input": "5 5\n0 1\n3\n3 1 3",
+            "output": "3"
+        },
+        {
+            "input": "20 20\n3 2\n8\n1 1 3 3 1 1 2 4",
+            "output": "6"
+        }
+    ],
+    "imgs": [],
+    "rating": [],
+    "year": "2006",
+    "level": "Nível 1",
+    "period": "",
+    "difficulty": "Fácil"
+}
