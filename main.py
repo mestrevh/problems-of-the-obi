@@ -115,6 +115,7 @@ def create_questions(pdfs_path):
         print(f"\n----------------------------------------")
         print(f"Processando arquivo na LLM: {pdf_path.name}")
 
+        print(pdf_path)
         print("Fazendo upload do PDF para a API...")
         arquivo_pdf = client.files.upload(file=str(pdf_path))
 
