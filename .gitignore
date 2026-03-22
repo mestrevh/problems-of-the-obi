@@ -209,3 +209,7 @@ __marimo__/
 #data
 data/*
 !data/example.txt
+gabaritos_obi/*
+!gabaritos_obi/example.txt
+output/*
+!ouput/example.txt
