@@ -85,6 +85,17 @@ for pdf_path in pdfs_path:
         for output_json in dados_json:
             
             output_path = Path(f"output/{output_json['title']}")
+            
+            if output_path.exists():
+                arquivo_antigo = output_path / "problem.json"
+                
+                if arquivo_antigo.exists():
+                    with open(arquivo_antigo, "r", encoding="utf-8") as f:
+                        aux = json.load(f)
+
+                    if aux['year'] != output_json['year']:
+                        output_path = Path(f"output/{output_json['title']}_{output_json['year']}")
+                
             output_path.mkdir(parents=True, exist_ok=True)
             problemas_mapeados.append(output_json['year'], output_json['title'])
             
@@ -167,8 +178,8 @@ def atualizar_readme():
 Este repositório cataloga e estrutura os problemas passados da OBI para a realização de experimentos e avaliação de LLMs em programação competitiva. 
 
 O processo de construção desta base de dados é **híbrido**:
-1. **Extração Automática ():** Utilizamos um script em Python integrado à API do Google Gemini para ler os PDFs originais das provas e extrair os enunciados, restrições e regras em formato JSON (salvos em `output/<Nome do Problema>/problem.json`).
-2. **Revisão Manual ():** Como os casos de teste oficiais muitas vezes exigem formatação específica ou não estão totalmente disponíveis no texto do PDF, os mantenedores inserem os **casos de teste à mão** nos arquivos gerados.
+1. **Extração Automática:** Utilizamos um script em Python integrado à API do Google Gemini para ler os PDFs originais das provas e extrair os enunciados, restrições e regras em formato JSON (salvos em `output/<Nome do Problema>/problem.json`).
+2. **Revisão Manual:** Como os casos de teste oficiais muitas vezes exigem formatação específica ou não estão totalmente disponíveis no texto do PDF, os mantenedores inserem os **casos de teste à mão** nos arquivos gerados.
 
 **Fonte de Dados:** [Provas Passadas OBI - Unicamp](https://olimpiada.ic.unicamp.br/passadas/)
 
