@@ -12,7 +12,7 @@ Este repositório cataloga e estrutura os problemas passados da OBI para a reali
 6. 📝 **Atualização do README:** Atualizar o documento principal detectando automaticamente o progresso. 
 
 **Fonte de Dados:** [Provas Passadas OBI - Unicamp](https://olimpiada.ic.unicamp.br/passadas/)
-
+**Número de questões extraídas:** 405
 ---
 
 ## Mapeamento por Edição
