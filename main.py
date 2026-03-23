@@ -22,11 +22,13 @@ problemas_mapeados = set()
 # =====================================================================
 # ETAPA 1: DOWNLOAD DOS CADERNOS (PDFs)
 # =====================================================================
+
+
 def baixar_cadernos_pdf():
     """Baixa todos os cadernos de prova em PDF do site da OBI para a pasta 'data'."""
     pasta_base = Path("data")
     pasta_base.mkdir(exist_ok=True)
-    
+
     # Padrões de URL cobrindo todas as fases (incluindo as fases B)
     padroes_url = [
         "programacao/",
@@ -39,47 +41,49 @@ def baixar_cadernos_pdf():
     ]
 
     urls_ja_baixadas = set()
-    
+
     print(f"\n{'='*40}")
     print("1. INICIANDO O DOWNLOAD DOS CADERNOS (PDFs)")
     print(f"{'='*40}")
 
     for ano in range(2000, 2025):
         print(f"\nBuscando PDFs do ano: {ano}")
-        
+
         for padrao in padroes_url:
             url_pagina = f"https://olimpiada.ic.unicamp.br/passadas/OBI{ano}/{padrao}"
-            
+
             try:
                 response = requests.get(url_pagina, timeout=10)
-                
+
                 if response.status_code != 200:
                     continue
-                
+
                 soup = BeautifulSoup(response.text, 'html.parser')
                 links = soup.find_all('a', href=True)
-                
+
                 for link in links:
                     href = link['href']
-                    
+
                     if href.lower().endswith('.pdf'):
                         url_completa = urljoin(url_pagina, href)
-                        
+
                         if url_completa in urls_ja_baixadas:
                             continue
-                            
+
                         nome_arquivo = href.split("/")[-1]
                         caminho_salvar = pasta_base / nome_arquivo
-                        
+
                         if caminho_salvar.exists():
                             print(f"  -> Já existe: {nome_arquivo}")
                             urls_ja_baixadas.add(url_completa)
                             continue
 
-                        print(f"  -> Baixando PDF: {nome_arquivo} ...", end=" ")
-                        
+                        print(
+                            f"  -> Baixando PDF: {nome_arquivo} ...", end=" ")
+
                         try:
-                            resposta_pdf = requests.get(url_completa, stream=True, timeout=15)
+                            resposta_pdf = requests.get(
+                                url_completa, stream=True, timeout=15)
                             if resposta_pdf.status_code == 200:
                                 with open(caminho_salvar, 'wb') as f:
                                     for chunk in resposta_pdf.iter_content(chunk_size=8192):
@@ -90,7 +94,7 @@ def baixar_cadernos_pdf():
                                 print(f"ERRO {resposta_pdf.status_code}")
                         except Exception as e:
                             print(f"FALHA ({e})")
-                            
+
                         time.sleep(0.5)
 
             except requests.RequestException:
@@ -101,6 +105,8 @@ def baixar_cadernos_pdf():
 # =====================================================================
 # ETAPA 2: EXTRAÇÃO DE QUESTÕES COM IA (GEMINI)
 # =====================================================================
+
+
 def create_questions(pdfs_path):
     client = genai.Client(api_key=os.getenv("GEMINI_API"))
     modelo_gemini = os.getenv("GEMINI_MODEL")
@@ -163,15 +169,17 @@ def create_questions(pdfs_path):
             )
 
             dados_json = json.loads(response.text)
-            quantidade_problemas = len(dados_json) if isinstance(dados_json, list) else 0
-            print(f"Foram encontrados e extraídos {quantidade_problemas} problemas.")
+            quantidade_problemas = len(dados_json) if isinstance(
+                dados_json, list) else 0
+            print(
+                f"Foram encontrados e extraídos {quantidade_problemas} problemas.")
 
             for output_json in dados_json:
                 titulo = output_json.get('title', 'Desconhecido')
                 ano = output_json.get('year', 'Unknown')
-                
+
                 output_path = Path(f"output/{titulo}")
-                
+
                 # Resolução de conflitos de nome
                 if output_path.exists():
                     arquivo_antigo = output_path / "problem.json"
@@ -182,15 +190,15 @@ def create_questions(pdfs_path):
                         if str(aux.get('year')) != str(ano):
                             titulo = f"{titulo}_{ano}"
                             output_path = Path(f"output/{titulo}")
-                
+
                 output_path.mkdir(parents=True, exist_ok=True)
                 problemas_mapeados.add((ano, titulo))
-                
+
                 with open(f"{str(output_path)}/problem.json", "w", encoding="utf-8") as f:
                     json.dump(output_json, f, indent=4, ensure_ascii=False)
 
                 print(f"Sucesso! O arquivo '{titulo}' foi gerado.")
-            
+
         except json.JSONDecodeError:
             print("Erro: A API não retornou um JSON válido.")
             print("Resposta bruta:", response.text)
@@ -204,84 +212,134 @@ def create_questions(pdfs_path):
                 print("Arquivo removido dos servidores da Google.")
             except:
                 pass
-    
+
     return erros
 
 # =====================================================================
 # ETAPA 3: DOWNLOAD DOS GABARITOS
 # =====================================================================
+
+
 def limpar_nome_arquivo(nome):
+    """Remove caracteres inválidos para nomes de arquivos no Windows/Linux"""
+
     nome_limpo = re.sub(r'[\\/*?:"<>|]', "", nome)
+
     return nome_limpo.strip()
 
+
 def baixar_gabaritos():
-    print(f"\n{'='*40}")
-    print("3. INICIANDO O DOWNLOAD DOS GABARITOS (ZIPs)")
-    print(f"{'='*40}")
 
     pasta_base = "gabaritos_obi"
     os.makedirs(pasta_base, exist_ok=True)
-    
+
+    # Lista de possíveis caminhos (patterns) que a OBI usou ao longo dos anos
     padroes_url = [
-        "programacao/", "programacao/cadernos/",
-        "fase1/programacao/", "fase1/programacao/cadernos/", "fase1b/programacao/", "fase1b/programacao/cadernos/",
-        "fase2/programacao/", "fase2/programacao/cadernos/", "fase2b/programacao/", "fase2b/programacao/cadernos/",
-        "fase3/programacao/", "fase3/programacao/cadernos/", "fase3b/programacao/", "fase3b/programacao/cadernos/"
+        "programacao/",
+        "programacao/cadernos/",
+        "fase1/programacao/",
+        "fase1/programacao/cadernos/",
+        "fase1b/programacao/",
+        "fase1b/programacao/cadernos/",
+        "fase2/programacao/",
+        "fase2/programacao/cadernos/",
+        "fase2b/programacao/",
+        "fase2b/programacao/cadernos/",
+        "fase3/programacao/",
+        "fase3/programacao/cadernos/",
+        "fase3b/programacao/",
+        "fase3b/programacao/cadernos/"
     ]
+
+    # Conjunto para não baixar o mesmo arquivo duas vezes caso apareça em páginas diferentes
 
     urls_ja_baixadas = set()
 
+    # Loop pelos anos (2000 a 2024)
+
     for ano in range(2000, 2025):
+        print(f"\n{'='*40}")
+        print(f"Buscando gabaritos do ano: {ano}")
+        print(f"{'='*40}")
         pasta_ano = os.path.join(pasta_base, str(ano))
         os.makedirs(pasta_ano, exist_ok=True)
-        encontrou_algo = False
+        encontrou_algo_no_ano = False
+
+        # Testa cada variação de URL para o ano atual
 
         for padrao in padroes_url:
-            url_pagina = f"[https://olimpiada.ic.unicamp.br/passadas/OBI](https://olimpiada.ic.unicamp.br/passadas/OBI){ano}/{padrao}"
-            
+            url_pagina = f"https://olimpiada.ic.unicamp.br/passadas/OBI{ano}/{padrao}"
             try:
                 response = requests.get(url_pagina, timeout=10)
-                if response.status_code != 200: continue
-                
+
+                # Se a página não existir (404), pula para o próximo padrão
+
+                if response.status_code != 200:
+                    continue
+
+                print(f"Página encontrada: {url_pagina}")
+
                 soup = BeautifulSoup(response.text, 'html.parser')
                 links = soup.find_all('a', href=True)
-                
+
                 for link in links:
                     href = link['href']
+
+                    # Verifica se é um arquivo zip e se está na pasta de gabaritos
+
                     if href.endswith('.zip') and ('gabarito' in href.lower() or 'testes' in href.lower()):
                         url_completa = urljoin(url_pagina, href)
-                        if url_completa in urls_ja_baixadas: continue
-                            
-                        nome_questao = link.text.strip()
-                        if not nome_questao:
-                            nome_questao = href.split("/")[-1].replace(".zip", "")
-                            
-                        nome_arquivo_final = f"{limpar_nome_arquivo(nome_questao)}.zip"
-                        caminho_salvar = os.path.join(pasta_ano, nome_arquivo_final)
-                        
-                        # Evitar re-download se já existir
-                        if os.path.exists(caminho_salvar):
-                            urls_ja_baixadas.add(url_completa)
-                            encontrou_algo = True
+
+                        if url_completa in urls_ja_baixadas:
                             continue
 
-                        print(f"  -> Baixando gabarito [{ano}]: {nome_questao} ...", end=" ")
+                        # Pega o texto do link para ser o nome da questão (ex: "Entrevistas de emprego")
+                        nome_questao = link.text.strip()
+
+                        # Fallback: Se o link for uma imagem ou não tiver texto, usa o nome do arquivo original
+                        if not nome_questao:
+                            nome_questao = href.split(
+                                "/")[-1].replace(".zip", "")
+
+                        nome_arquivo_final = f"{limpar_nome_arquivo(nome_questao)}.zip"
+                        caminho_salvar = os.path.join(
+                            pasta_ano, nome_arquivo_final)
+
+                        print(f"  -> Baixando: {nome_questao} ...", end=" ")
                         try:
-                            resposta_zip = requests.get(url_completa, stream=True, timeout=15)
+                            resposta_zip = requests.get(
+                                url_completa, stream=True, timeout=15)
+
                             if resposta_zip.status_code == 200:
                                 with open(caminho_salvar, 'wb') as f:
                                     for chunk in resposta_zip.iter_content(chunk_size=8192):
                                         f.write(chunk)
+
                                 urls_ja_baixadas.add(url_completa)
-                                encontrou_algo = True
+                                encontrou_algo_no_ano = True
+
                                 print("OK!")
-                            else: print(f"ERRO {resposta_zip.status_code}")
-                        except Exception as e: print(f"FALHA ({e})")
+
+                            else:
+                                print(f"ERRO {resposta_zip.status_code}")
+
+                        except Exception as e:
+                            print(f"FALHA ({e})")
+
+                        # Pequena pausa para não sobrecarregar o servidor da Unicamp
                         time.sleep(0.5)
+
             except requests.RequestException:
+                # Ignora erros de conexão e tenta a próxima URL
                 continue
 
-    print("\nDownload de gabaritos finalizado!")
+        if not encontrou_algo_no_ano:
+
+            print(
+                f"Nenhum gabarito em .zip encontrado para {ano} nas URLs testadas.")
+
+    print("\nProcesso finalizado com sucesso! Verifique a pasta 'gabaritos_obi'.")
+
 
 # =====================================================================
 # ETAPA 4: EXTRAÇÃO E ORGANIZAÇÃO DOS GABARITOS
@@ -290,6 +348,7 @@ def normalizar_nome(nome):
     nome_sem_acento = ''.join(c for c in unicodedata.normalize('NFD', nome)
                               if unicodedata.category(c) != 'Mn')
     return nome_sem_acento.lower().replace(' ', '').replace('-', '').replace('_', '').strip()
+
 
 def organizar_test_cases():
     print(f"\n{'='*40}")
@@ -314,27 +373,29 @@ def organizar_test_cases():
     for arquivo_zip in path_gabaritos.rglob("*.zip"):
         ano_gabarito = arquivo_zip.parent.name
         nome_zip = arquivo_zip.stem
-        
+
         nome_norm_simples = normalizar_nome(nome_zip)
         nome_norm_com_ano = normalizar_nome(f"{nome_zip}_{ano_gabarito}")
 
-        pasta_destino = pastas_output.get(nome_norm_com_ano) or pastas_output.get(nome_norm_simples)
+        pasta_destino = pastas_output.get(
+            nome_norm_com_ano) or pastas_output.get(nome_norm_simples)
 
         if pasta_destino:
             test_cases_dir = pasta_destino / "test_cases"
             test_cases_dir.mkdir(exist_ok=True)
-            
+
             # Checa se a pasta está vazia antes de descompactar para não extrair duas vezes
             if not any(test_cases_dir.iterdir()):
                 try:
                     with zipfile.ZipFile(arquivo_zip, 'r') as zip_ref:
                         zip_ref.extractall(test_cases_dir)
-                    
+
                     # NOVO: Cria um arquivo invisível para marcar que foi automático
                     (test_cases_dir / ".auto").touch()
-                    
-                    print(f"  -> Extrato com sucesso: {pasta_destino.name}/test_cases")
-                    arquivo_zip.unlink() # Deleta o zip limpo
+
+                    print(
+                        f"  -> Extrato com sucesso: {pasta_destino.name}/test_cases")
+                    arquivo_zip.unlink()  # Deleta o zip limpo
                     zips_processados += 1
                 except zipfile.BadZipFile:
                     print(f"  -> ERRO: ZIP corrompido: {arquivo_zip.name}")
@@ -348,21 +409,26 @@ def organizar_test_cases():
 # =====================================================================
 # ETAPA 5: LIMPEZA DOS TEST CASES
 # =====================================================================
+
+
 def limpar_pastas_test_cases():
     print(f"\n{'='*40}")
     print("5. LIMPANDO E REESTRUTURANDO TEST CASES")
     print(f"{'='*40}")
 
     path_output = Path("output")
-    if not path_output.exists(): return
+    if not path_output.exists():
+        return
 
     problemas_processados = 0
 
     for pasta_problema in path_output.iterdir():
-        if not pasta_problema.is_dir(): continue
-        
+        if not pasta_problema.is_dir():
+            continue
+
         test_cases_dir = pasta_problema / "test_cases"
-        if not test_cases_dir.exists(): continue
+        if not test_cases_dir.exists():
+            continue
 
         pastas_numeradas = []
         for item in test_cases_dir.rglob("*"):
@@ -373,7 +439,8 @@ def limpar_pastas_test_cases():
         for pasta in pastas_numeradas:
             destino = test_cases_dir / pasta.name
             if pasta != destino:
-                if destino.exists(): shutil.rmtree(destino)
+                if destino.exists():
+                    shutil.rmtree(destino)
                 shutil.move(str(pasta), str(destino))
                 quantidade_movida += 1
 
@@ -387,12 +454,15 @@ def limpar_pastas_test_cases():
                     item.unlink()
 
         if quantidade_movida > 0 or pastas_numeradas:
-            print(f"[{pasta_problema.name}] {len(pastas_numeradas)} casos limpos mantidos.")
+            print(
+                f"[{pasta_problema.name}] {len(pastas_numeradas)} casos limpos mantidos.")
             problemas_processados += 1
 
 # =====================================================================
 # ETAPA 5.5: REMOÇÃO DE QUESTÕES SEM TEST CASES
 # =====================================================================
+
+
 def remover_questoes_sem_testes():
     print(f"\n{'='*40}")
     print("5.5. REMOVENDO QUESTÕES SEM CASOS DE TESTE")
@@ -404,31 +474,37 @@ def remover_questoes_sem_testes():
         return
 
     questoes_removidas = 0
-    global problemas_mapeados # Usamos global para atualizar a lista do README
+    global problemas_mapeados  # Usamos global para atualizar a lista do README
 
     # Usamos list() para não alterar o iterador enquanto apagamos pastas
     for pasta_problema in list(path_output.iterdir()):
         if not pasta_problema.is_dir():
             continue
-        
+
         test_cases_dir = pasta_problema / "test_cases"
-        
+
         # Checa se a pasta test_cases existe e se possui algum arquivo/pasta dentro
         tem_testes = test_cases_dir.exists() and any(test_cases_dir.iterdir())
-        
-        if not tem_testes:
-            print(f" ❌ Removendo: '{pasta_problema.name}' (Sem casos de teste)")
-            shutil.rmtree(pasta_problema) # Deleta a pasta e todo o seu conteúdo
-            questoes_removidas += 1
-            
-            # Remove da lista global para não aparecer no README
-            problemas_mapeados = {(ano, titulo) for ano, titulo in problemas_mapeados if titulo != pasta_problema.name}
 
-    print(f"\nTotal de questões removidas por falta de testes: {questoes_removidas}")
-    
+        if not tem_testes:
+            print(
+                f" ❌ Removendo: '{pasta_problema.name}' (Sem casos de teste)")
+            # Deleta a pasta e todo o seu conteúdo
+            shutil.rmtree(pasta_problema)
+            questoes_removidas += 1
+
+            # Remove da lista global para não aparecer no README
+            problemas_mapeados = {
+                (ano, titulo) for ano, titulo in problemas_mapeados if titulo != pasta_problema.name}
+
+    print(
+        f"\nTotal de questões removidas por falta de testes: {questoes_removidas}")
+
 # =====================================================================
 # ETAPA 6: ATUALIZAÇÃO DO README
 # =====================================================================
+
+
 def atualizar_readme():
     print(f"\n{'='*40}")
     print("6. ATUALIZANDO O README.MD")
@@ -448,33 +524,36 @@ def atualizar_readme():
 
         for i, nome in enumerate(problemas_por_ano[ano], 1):
             if nome == "Concurso":
-                linhas_tabela.append(f"| {i} | {nome} | ❌ | Inviável | ❌ Sem casos de teste |")
+                linhas_tabela.append(
+                    f"| {i} | {nome} | ❌ | Inviável | ❌ Sem casos de teste |")
                 continue
 
             caminho_json = Path(f"output/{nome}/problem.json")
             caminho_testes = Path(f"output/{nome}/test_cases")
-            
+
             testes_status = "Pendente"
             status = "Pendente"
-            
+
             if caminho_json.exists():
                 extracao = "OK"
                 status = "⚠️ Aguardando Testes"
-                
+
                 if caminho_testes.exists():
                     # Verifica o que tem na pasta ignorando o nosso marcador
-                    conteudo = [f for f in caminho_testes.iterdir() if f.name != ".auto"]
-                    
+                    conteudo = [f for f in caminho_testes.iterdir()
+                                if f.name != ".auto"]
+
                     if len(conteudo) > 0:
                         # Se o marcador estiver lá, foi o script. Se não, foi você.
                         if (caminho_testes / ".auto").exists():
                             testes_status = "🤖 Auto"
                         else:
                             testes_status = "🧑‍💻 Manual"
-                        
+
                         status = "✅ Concluído"
 
-            linhas_tabela.append(f"| {i} | {nome} | {extracao} | {testes_status} | {status} |")
+            linhas_tabela.append(
+                f"| {i} | {nome} | {extracao} | {testes_status} | {status} |")
 
         tabela_markdown = "\n".join(linhas_tabela)
 
@@ -519,15 +598,16 @@ Este repositório cataloga e estrutura os problemas passados da OBI para a reali
 
     print("Sucesso! README.md atualizado.")
 
+
 # =====================================================================
 # INICIALIZAÇÃO DA PIPELINE
 # =====================================================================
 if __name__ == "__main__":
     print("\n🚀 INICIANDO PIPELINE DE AUTOMAÇÃO DA OBI 🚀\n")
-    
+
     # Passo 1: Baixar PDFs
     baixar_cadernos_pdf()
-    
+
     # Passo 2: Mandar para LLM
     print(f"\n{'='*40}")
     print("2. EXTRAÇÃO DE DADOS (API GEMINI)")
@@ -542,17 +622,17 @@ if __name__ == "__main__":
 
     # Passo 3: Baixar ZIPs de gabaritos
     baixar_gabaritos()
-    
+
     # Passo 4: Cruzar ZIPs com Pastas Output
     organizar_test_cases()
-    
+
     # Passo 5: Limpar estrutura dos ZIPs
     limpar_pastas_test_cases()
-    
+
     # Passo 5.5: NOVO - Remover questões sem testes válidos
     remover_questoes_sem_testes()
-    
+
     # Passo 6: Atualizar documento README com status atualizado
     atualizar_readme()
-    
+
     print("\n🎉 PIPELINE FINALIZADA COM SUCESSO! 🎉")
