@@ -16,5 +16,5 @@ Este repositório cataloga e estrutura os problemas passados da OBI para a reali
 ## Resultados
 
 - **Questões sem casos de teste:** `database_questions_obi.zip` quantidade de questões: 474
-- **Questões com casos de teste:**  `test` quantidade de questões: 306
-- **Custo da extração:** R$ 200,00
+- **Questões com casos de teste:**  `test` quantidade de questões: 307
+- **Custo da extração:** R$ 100,00
