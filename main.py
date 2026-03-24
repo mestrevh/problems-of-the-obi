@@ -390,9 +390,6 @@ def organizar_test_cases():
                     with zipfile.ZipFile(arquivo_zip, 'r') as zip_ref:
                         zip_ref.extractall(test_cases_dir)
 
-                    # NOVO: Cria um arquivo invisível para marcar que foi automático
-                    (test_cases_dir / ".auto").touch()
-
                     print(
                         f"  -> Extrato com sucesso: {pasta_destino.name}/test_cases")
                     arquivo_zip.unlink()  # Deleta o zip limpo
@@ -484,7 +481,7 @@ def remover_questoes_sem_testes():
         test_cases_dir = pasta_problema / "test_cases"
 
         # Checa se a pasta test_cases existe e se possui algum arquivo/pasta dentro
-        tem_testes = test_cases_dir.exists() and any(test_cases_dir.iterdir())
+        tem_testes = test_cases_dir.exists() and any(test_cases_dir.iterdir()) and len(list(test_cases_dir.rglob("*"))) > 1
 
         if not tem_testes:
             print(
@@ -633,6 +630,6 @@ if __name__ == "__main__":
     remover_questoes_sem_testes()
 
     # Passo 6: Atualizar documento README com status atualizado
-    atualizar_readme()
+    # atualizar_readme()
 
     print("\n🎉 PIPELINE FINALIZADA COM SUCESSO! 🎉")
