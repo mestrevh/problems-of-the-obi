@@ -13,8 +13,8 @@ Este repositório cataloga e estrutura os problemas passados da OBI para a reali
 
 **Fonte de Dados:** [Provas Passadas OBI - Unicamp](https://olimpiada.ic.unicamp.br/passadas/)
 
----
+## Resultados
 
-## Mapeamento por Edição
-
-
+- **Questões sem casos de teste:** `database_questions_obi.zip` quantidade de questões: 474
+- **Questões com casos de teste:**  `test` quantidade de questões: 306
+- **Custo da extração:** R$ 200,00
