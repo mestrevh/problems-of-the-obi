@@ -126,36 +126,31 @@ def create_questions(pdfs_path):
         arquivo_pdf = client.files.upload(file=str(pdf_path))
 
         prompt = """
-        Você é um assistente especializado em extrair problemas de programação competitiva de PDFs da Olimpíada Brasileira de Informática (OBI).
-        Leia o arquivo PDF em anexo e extraia os dados de TODOS os problemas que encontrar no documento.
-
-        Retorne os dados ESTRITAMENTE no formato JSON abaixo, preenchendo com as informações do documento. 
-        A sua resposta deve ser um ARRAY (lista) de objetos JSON, onde cada objeto representa um problema diferente.
-        Não inclua nenhuma formatação markdown (como ```json) ou texto antes/depois do JSON.
-
-        TEMPLATE ESPERADO:
-        [
+Você é um assistente especializado em extrair problemas de programação competitiva de PDFs da Olimpíada Brasileira de Informática (OBI).
+Leia o arquivo PDF em anexo e extraia os dados de TODOS os problemas que encontrar no documento.
+Retorne os dados ESTRITAMENTE no formato JSON abaixo, preenchendo com as informações do documento. 
+A sua resposta deve ser um ARRAY (lista) de objetos JSON, onde cada objeto representa um problema diferente.
+Não inclua nenhuma formatação markdown (como ```json) ou texto antes/depois do JSON.
+TEMPLATE ESPERADO:
+    [{
+        "title": "Nome do problema 1",
+        "statement": "Texto completo da descrição do problema (história e regras). Mantenha as quebras de linha usando \\n",
+        "input": "Texto da seção de Entrada",
+        "output": "Texto da seção de Saída",
+        "constraints": "Texto da seção de Restrições",
+        "examples": [
             {
-                "title": "Nome do problema 1",
-                "statement": "Texto completo da descrição do problema (história e regras). Mantenha as quebras de linha usando \\n",
-                "input": "Texto da seção de Entrada",
-                "output": "Texto da seção de Saída",
-                "constraints": "Texto da seção de Restrições",
-                "examples": [
-                    {
-                        "input": "exemplo de entrada 1",
-                        "output": "exemplo de saída 1"
-                    }
-                ],
-                "imgs": [],
-                "rating": [int: pontuação subtarefa 0, int: pontuação subtarefa 1, ... , int: pontuação subtarefa n],
-                "year": "2024",
-                "level": "PJ",
-                "period": "Fase 3",
-                "difficulty": "Difícil [aqui só pode ter 3 valores únicos: Fácil, Médio ou Díficil]"
+                "input": "exemplo de entrada 1",
+                "output": "exemplo de saída 1"
             }
-        ]
-        """
+            ],
+        "imgs": [],
+        "rating": [int: pontuação subtarefa 0, int: pontuação subtarefa 1, ... , int: pontuação subtarefa n],
+        "year": "2024",
+        "level": "PJ",
+        "period": "Fase 3",
+        "difficulty": "Difícil [aqui só pode ter 3 valores únicos: Fácil, Médio ou Díficil]"
+    }]"""
 
         print("Processando o documento com a LLM (isso pode levar um tempo maior por ser o documento todo)...")
 
