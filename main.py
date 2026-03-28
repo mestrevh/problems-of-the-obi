@@ -126,9 +126,12 @@ def create_questions(pdfs_path):
         arquivo_pdf = client.files.upload(file=str(pdf_path))
 
         prompt = """
+### PERSONA ###
 Você é um assistente especializado em extrair problemas de programação competitiva de PDFs da Olimpíada Brasileira de Informática (OBI).
+### TASK ###
 Leia o arquivo PDF em anexo e extraia os dados de TODOS os problemas que encontrar no documento.
 Retorne os dados ESTRITAMENTE no formato JSON abaixo, preenchendo com as informações do documento. 
+### RESTRIÇÕES ###
 A sua resposta deve ser um ARRAY (lista) de objetos JSON, onde cada objeto representa um problema diferente.
 Não inclua nenhuma formatação markdown (como ```json) ou texto antes/depois do JSON.
 TEMPLATE ESPERADO:
