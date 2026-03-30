@@ -152,6 +152,7 @@ TEMPLATE ESPERADO:
         "year": "2024",
         "level": "PJ",
         "period": "Fase 3",
+        "topics": ["array", "programação dinâmica", "grafos" (categorias da questão)]
         "difficulty": "Difícil [aqui só pode ter 3 valores únicos: Fácil, Médio ou Díficil]"
     }]"""
 
@@ -601,19 +602,19 @@ if __name__ == "__main__":
     print("\n🚀 INICIANDO PIPELINE DE AUTOMAÇÃO DA OBI 🚀\n")
 
     # Passo 1: Baixar PDFs
-    #baixar_cadernos_pdf()
+    baixar_cadernos_pdf()
 
     # Passo 2: Mandar para LLM
-    #print(f"\n{'='*40}")
-    #print("2. EXTRAÇÃO DE DADOS (API GEMINI)")
-    #print(f"{'='*40}")
-    #path_data = Path("data")
-    #pdfs_path = list(path_data.rglob("*.pdf"))
+    print(f"\n{'='*40}")
+    print("2. EXTRAÇÃO DE DADOS (API GEMINI)")
+    print(f"{'='*40}")
+    path_data = Path("data")
+    pdfs_path = list(path_data.rglob("*.pdf"))
     
-    #while True:    
-    #    pdfs_path = create_questions(pdfs_path=pdfs_path)
-    #    if len(pdfs_path) == 0:
-    #        break
+    while True:    
+        pdfs_path = create_questions(pdfs_path=pdfs_path)
+        if len(pdfs_path) == 0:
+            break
 
     # Passo 3: Baixar ZIPs de gabaritos
     baixar_gabaritos()
