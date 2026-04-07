@@ -25,11 +25,12 @@
         50
     ],
     "year": "2014",
-    "level": "2",
+    "level": "Nível 2",
     "period": "Fase 2",
     "topics": [
         "estruturas de dados",
-        "simulação"
+        "simulação",
+        "matriz"
     ],
-    "difficulty": "Difícil"
+    "difficulty": "Médio"
 }

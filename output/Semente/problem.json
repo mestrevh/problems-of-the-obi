@@ -20,12 +20,11 @@
         20
     ],
     "year": "2014",
-    "level": "N1",
+    "level": "Nível 1",
     "period": "Fase 1",
     "topics": [
-        "arrays",
-        "simulação",
-        "matemática"
+        "matemática",
+        "lógica"
     ],
-    "difficulty": "Médio"
+    "difficulty": "Fácil"
 }

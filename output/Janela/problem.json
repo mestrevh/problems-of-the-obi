@@ -24,9 +24,8 @@
     "level": "Nível 2",
     "period": "Fase 2",
     "topics": [
-        "matemática",
         "geometria",
-        "lógica"
+        "matemática"
     ],
     "difficulty": "Fácil"
 }

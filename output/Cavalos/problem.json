@@ -24,11 +24,12 @@
         55
     ],
     "year": "2008",
-    "level": "Nível 1",
+    "level": "1",
     "period": "Fase 2",
     "topics": [
-        "matemática",
-        "ad-hoc"
+        "Matemática",
+        "Lógica",
+        "Ad-hoc"
     ],
     "difficulty": "Médio"
 }

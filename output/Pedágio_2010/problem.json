@@ -1,9 +1,9 @@
 {
     "title": "Pedágio",
-    "statement": "A invenção do carro tornou muito mais rápido e mais barato realizar viagens de longa distância. Realizar uma viagem rodoviária tem dois tipos de custos: cada quilômetro percorrido na rodovia tem um custo associado (não só devido ao consumo de combustível mas também devido ao desgaste das peças do carro, pneus, etc.), mas também é necessário passar por vários pedágios localizados ao longo da rodovia.\n\nOs pedágios são igualmente espaçados ao logo da rodovia; o começo da estrada não possui um pedágio, mas o seu final pode estar logo após um pedágio (por exemplo, se a distância entre dois pedágios consecutivos for de 37 km e a estrada tiver 111 km, o motorista deve pagar um pedágio aos 37 km, aos 74 km e aos 111 km, logo antes de terminar a sua viagem).\n\nTarefa\n\nDadas as características da rodovia e os custos com gasolina e com pedágios, calcule o custo total da viagem.",
-    "input": "A entrada consiste de duas linhas. A primeira linha da entrada contém dois inteiros L e D (1 ≤ L, D ≤ 10⁴), indicando o comprimento da estrada e a distância entre pedágios, respectivamente. A segunda linha contém dois inteiros K e P (1 ≤ K, P ≤ 10⁴), indicando o custo por quilômetro percorrido e o valor de cada pedágio. O primeiro pedágio está localizado no quilômetro D da estrada (ou seja, a distância do início da estrada para o primeiro pedágio é D quilômetros).",
+    "statement": "A invenção do carro tornou muito mais rápido e mais barato realizar viagens de longa distância. Realizar uma viagem rodoviária tem dois tipos de custos: cada quilômetro percorrido na rodovia tem um custo associado (não só devido ao consumo de combustível mas também devido ao desgaste das peças do carro, pneus, etc.), mas também é necessário passar por vários pedágios localizados ao longo da rodovia.\nOs pedágios são igualmente espaçados ao logo da rodovia; o começo da estrada não possui um pedágio, mas o seu final pode estar logo após um pedágio (por exemplo, se a distância entre dois pedágios consecutivos for de 37 km e a estrada tiver 111 km, o motorista deve pagar um pedágio aos 37 km, aos 74 km e aos 111 km, logo antes de terminar a sua viagem).\n\nTarefa\nDadas as características da rodovia e os custos com gasolina e com pedágios, calcule o custo total da viagem.",
+    "input": "A entrada consiste de duas linhas. A primeira linha da entrada contém dois inteiros L e D (1 ≤ L, D ≤ 10⁴), indicando o comprimento da estrada e a distância entre pedágios, respectivamente. A segunda linha contém dois inteiros K e P (1 ≤ K, P ≤ 10⁴), indicando o custo por quilômetro percorrido e o valor de cada pedágio.\nO primeiro pedágio está localizado no quilômetro D da estrada (ou seja, a distância do início da estrada para o primeiro pedágio é D quilômetros).",
     "output": "Seu programa deve imprimir uma única linha contendo um único inteiro, indicando o custo total da viagem.",
-    "constraints": "Informações sobre a pontuação\n\n• Em um conjunto de casos de teste que totaliza 40 pontos, L, D, K, P ≤ 100.",
+    "constraints": "1 ≤ L, D ≤ 10⁴\n1 ≤ K, P ≤ 10⁴\nEm um conjunto de casos de teste que totaliza 40 pontos, L, D, K, P ≤ 100.",
     "examples": [
         {
             "input": "111 37\n1 10",
@@ -19,12 +19,16 @@
         }
     ],
     "imgs": [],
-    "rating": [],
+    "rating": [
+        40,
+        60
+    ],
     "year": "2010",
     "level": "Nível 1",
     "period": "Fase 1",
     "topics": [
-        "matemática"
+        "matemática",
+        "aritmética"
     ],
     "difficulty": "Fácil"
 }

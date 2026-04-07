@@ -19,13 +19,16 @@
         }
     ],
     "imgs": [],
-    "rating": [],
+    "rating": [
+        30,
+        70
+    ],
     "year": "2012",
-    "level": "Júnior",
+    "level": "PJ",
     "period": "Fase 2",
     "topics": [
-        "matemática",
-        "simulação"
+        "ad-hoc",
+        "matemática"
     ],
     "difficulty": "Fácil"
 }

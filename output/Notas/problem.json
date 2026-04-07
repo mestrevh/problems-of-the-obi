@@ -17,11 +17,12 @@
     "imgs": [],
     "rating": [],
     "year": "2014",
-    "level": "2",
+    "level": "Nível 2",
     "period": "Fase 2",
     "topics": [
         "array",
-        "implementação"
+        "frequência",
+        "lógica"
     ],
     "difficulty": "Fácil"
 }

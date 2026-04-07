@@ -14,10 +14,10 @@
     "rating": [],
     "year": "2004",
     "level": "Programação",
-    "period": "Fase Única",
+    "period": "Fase 1",
     "topics": [
-        "strings",
-        "programação dinâmica"
+        "programação dinâmica",
+        "strings"
     ],
     "difficulty": "Médio"
 }

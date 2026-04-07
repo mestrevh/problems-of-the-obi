@@ -17,10 +17,11 @@
     "imgs": [],
     "rating": [],
     "year": "2012",
-    "level": "Júnior",
+    "level": "PJ",
     "period": "Fase 2",
     "topics": [
-        "matemática"
+        "matemática",
+        "ad-hoc"
     ],
     "difficulty": "Fácil"
 }

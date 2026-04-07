@@ -38,6 +38,9 @@ def baixar_cadernos_pdf():
         "fase2b/programacao/",
         "fase3/programacao/",
         "fase3b/programacao/"
+        "fase1/programacao/cadernos/",
+        "fase2/programacao/cadernos/",
+        "fase3/programacao/cadernos/"
     ]
 
     urls_ja_baixadas = set()
@@ -84,6 +87,9 @@ def baixar_cadernos_pdf():
                         try:
                             resposta_pdf = requests.get(
                                 url_completa, stream=True, timeout=15)
+                            
+                            caminho_salvar.replace('?', '')
+                            
                             if resposta_pdf.status_code == 200:
                                 with open(caminho_salvar, 'wb') as f:
                                     for chunk in resposta_pdf.iter_content(chunk_size=8192):
@@ -255,8 +261,8 @@ def baixar_gabaritos():
     urls_ja_baixadas = set()
 
     # Loop pelos anos (2000 a 2024)
-
-    for ano in range(2000, 2025):
+    count = 0
+    for ano in range(1999, 2026):
         print(f"\n{'='*40}")
         print(f"Buscando gabaritos do ano: {ano}")
         print(f"{'='*40}")
@@ -318,7 +324,7 @@ def baixar_gabaritos():
                                 encontrou_algo_no_ano = True
 
                                 print("OK!")
-
+                                count += 1
                             else:
                                 print(f"ERRO {resposta_zip.status_code}")
 
@@ -337,7 +343,7 @@ def baixar_gabaritos():
             print(
                 f"Nenhum gabarito em .zip encontrado para {ano} nas URLs testadas.")
 
-    print("\nProcesso finalizado com sucesso! Verifique a pasta 'gabaritos_obi'.")
+    print(f"\nProcesso finalizado com sucesso! Verifique a pasta 'gabaritos_obi'. Gabaritos encontrados: {count}")
 
 
 # =====================================================================
@@ -605,22 +611,22 @@ if __name__ == "__main__":
     baixar_cadernos_pdf()
 
     # Passo 2: Mandar para LLM
-    print(f"\n{'='*40}")
-    print("2. EXTRAÇÃO DE DADOS (API GEMINI)")
-    print(f"{'='*40}")
-    path_data = Path("data")
-    pdfs_path = list(path_data.rglob("*.pdf"))
+    #print(f"\n{'='*40}")
+    #print("2. EXTRAÇÃO DE DADOS (API GEMINI)")
+    #print(f"{'='*40}")
+    #path_data = Path("data")
+    #pdfs_path = list(path_data.rglob("*.pdf"))
     
-    while True:    
-        pdfs_path = create_questions(pdfs_path=pdfs_path)
-        if len(pdfs_path) == 0:
-            break
+    #while True:    
+    #    pdfs_path = create_questions(pdfs_path=pdfs_path)
+    #    if len(pdfs_path) == 0:
+    #        break
 
     # Passo 3: Baixar ZIPs de gabaritos
     baixar_gabaritos()
 
     # Passo 4: Cruzar ZIPs com Pastas Output
-    organizar_test_cases()
+    #organizar_test_cases()
 
     # Passo 5: Limpar estrutura dos ZIPs
     #limpar_pastas_test_cases()

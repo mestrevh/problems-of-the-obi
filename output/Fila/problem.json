@@ -20,11 +20,12 @@
         70
     ],
     "year": "2014",
-    "level": "Júnior",
+    "level": "PJ",
     "period": "Fase 1",
     "topics": [
         "estruturas de dados",
-        "arrays"
+        "arrays",
+        "conjuntos"
     ],
     "difficulty": "Médio"
 }

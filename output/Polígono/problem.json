@@ -1,9 +1,9 @@
 {
     "title": "Polígono",
-    "statement": "Renato gosta muito de geometria e acaba de achar alguns palitos em seu quarto. Ele está tentando utilizar\nesses palitos de forma a fazer um polígono com o maior número de lados possíveis.\n\nPara montar o polígono, Renato não quer cruzar os palitos; ou seja, os palitos devem se tocar apenas nas\npontas. Ele também não quer quebrar nenhum palito, de forma que todos os palitos que forem usados devem\nmanter sua medida original.\n\nSe, por exemplo, os palitos têm medidas 3, 4 e 5, é possível utilizar todos os três palitos para formar um\ntriângulo. Mas se as medidas são 1, 1, 1 e 5, é possível formar um triângulo com três lados iguais a 1 mas\nnão é possivel formar um polígono com todos os 4 palitos.\n\nVocê consegue ajudar Renato a descobrir qual é o maior número de palitos que ele consegue usar?",
-    "input": "A primeira linha contém apenas um inteiro N que indica o número de palitos. A segunda linha possui N\ninteiros indicando as medidas dos palitos.",
-    "output": "Se programa deve imprimir uma única linha, contendo um único inteiro, o maior número de lados que o\npolígono pode ter seguindo as restrições do enunciado. Se não for possível formar nenhum polígono usando\nos palitos, imprima 0.",
-    "constraints": "• 3 ≤ N ≤ 100000\n• As medidas dos palitos são inteiros positivos menores ou iguais a 10000\n\nInformações sobre a pontuação\n• Para um conjunto de entradas totalizando 50 pontos, N ≤ 1000",
+    "statement": "Renato gosta muito de geometria e acaba de achar alguns palitos em seu quarto. Ele está tentando utilizar esses palitos de forma a fazer um polígono com o maior número de lados possíveis.\nPara montar o polígono, Renato não quer cruzar os palitos; ou seja, os palitos devem se tocar apenas nas pontas. Ele também não quer quebrar nenhum palito, de forma que todos os palitos que forem usados devem manter sua medida original.\nSe, por exemplo, os palitos têm medidas 3, 4 e 5, é possível utilizar todos os três palitos para formar um triângulo. Mas se as medidas são 1, 1, 1 e 5, é possível formar um triângulo com três lados iguais a 1 mas não é possivel formar um polígono com todos os 4 palitos.\nVocê consegue ajudar Renato a descobrir qual é o maior número de palitos que ele consegue usar?",
+    "input": "A primeira linha contém apenas um inteiro N que indica o número de palitos. A segunda linha possui N inteiros indicando as medidas dos palitos.",
+    "output": "Se programa deve imprimir uma única linha, contendo um único inteiro, o maior número de lados que o polígono pode ter seguindo as restrições do enunciado. Se não for possível formar nenhum polígono usando os palitos, imprima 0.",
+    "constraints": "• 3 ≤ N ≤ 100000\n• As medidas dos palitos são inteiros positivos menores ou iguais a 10000",
     "examples": [
         {
             "input": "3\n3 4 5",
@@ -24,11 +24,12 @@
         50
     ],
     "year": "2013",
-    "level": "Nível 1",
+    "level": "N1",
     "period": "Fase 2",
     "topics": [
-        "algoritmos gulosos",
-        "ordenação"
+        "ordenação",
+        "geometria",
+        "algoritmos gulosos"
     ],
     "difficulty": "Médio"
 }

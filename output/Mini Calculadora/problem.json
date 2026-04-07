@@ -21,15 +21,15 @@
     "imgs": [],
     "rating": [
         30,
-        55,
-        15
+        55
     ],
     "year": "2008",
     "level": "PJ",
     "period": "Fase 2",
     "topics": [
         "matemática",
-        "mdc"
+        "mdc",
+        "frações"
     ],
     "difficulty": "Médio"
 }

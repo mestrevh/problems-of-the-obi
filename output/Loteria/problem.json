@@ -21,11 +21,11 @@
     "imgs": [],
     "rating": [],
     "year": "2014",
-    "level": "Júnior",
+    "level": "PJ",
     "period": "Fase 2",
     "topics": [
-        "array",
-        "lógica"
+        "condicionais",
+        "laços"
     ],
     "difficulty": "Fácil"
 }

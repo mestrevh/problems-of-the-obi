@@ -17,13 +17,11 @@
     "imgs": [],
     "rating": [],
     "year": "2013",
-    "level": "1",
+    "level": "N1",
     "period": "Fase 1",
     "topics": [
         "matrizes",
-        "simulação",
-        "grafos",
-        "busca"
+        "simulação"
     ],
     "difficulty": "Médio"
 }

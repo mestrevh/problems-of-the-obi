@@ -21,12 +21,12 @@
     "imgs": [],
     "rating": [],
     "year": "2011",
-    "level": "Nível 1",
+    "level": "1",
     "period": "Fase 2",
     "topics": [
         "grafos",
-        "busca",
-        "matriz"
+        "busca em largura",
+        "busca em profundidade"
     ],
-    "difficulty": "Fácil"
+    "difficulty": "Médio"
 }

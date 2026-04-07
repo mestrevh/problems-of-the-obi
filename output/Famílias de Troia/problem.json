@@ -25,9 +25,7 @@
     "period": "Fase 2",
     "topics": [
         "grafos",
-        "busca",
-        "componentes conexas",
-        "dsu"
+        "union-find"
     ],
-    "difficulty": "Médio"
+    "difficulty": "Fácil"
 }

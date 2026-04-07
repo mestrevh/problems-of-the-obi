@@ -1,0 +1,39 @@
+{
+    "title": "Um Desafio Muito Distinto",
+    "statement": "João e Maria são dois irmãos que adoram bolinhas de gude e matemática. Por isso, eles gostaram muito do novo lançamento da OBI (Organização de Brincadeiras Infantis), o Desafio Muito Distinto. Em cada partida do desafio, Maria usa bolinhas de gude para avaliar as habilidades de memória e matemática de João.\nNo início de uma partida, Maria coloca uma quantidade muito grande de bolinhas de gude em uma mesa e dá uma caixa vazia para João. Maria também escolhe três inteiros positivos L, A e B que definem as regras da partida:\n• João deve usar as rodadas do desafio para mover bolinhas da mesa para a caixa. Se, ao final de uma rodada, a caixa possuir L ou mais bolinhas, a partida acaba.\n• Em cada rodada, João poderá mover no mínimo A e no máximo B bolinhas de gude da mesa para a caixa.\n• Uma rodada se inicia com João escolhendo um inteiro x, tal que A ≤ x ≤ B, de bolinhas de gude que ele deseja mover. Porém, João não pode escolher o mesmo valor de x mais de uma vez na mesma partida. Em outras palavras, os valores que João escolhe para x em cada rodada precisam ser todos distintos.\n• Caso João não consiga escolher algum valor válido para x, a partida termina. Caso João escolha um x válido, ele completa a rodada movendo as x bolinhas de gude para a caixa. Vale ressaltar que a mesa possui muitas bolinhas de gude, de modo que sempre existem bolinhas suficientes para João mover.\nMemorizar quantidades, contar e mover bolinhas é bastante trabalho. Por isso, Maria decidiu que, após cada partida, ela irá presentear João com uma quantidade de chocolates igual ao número de rodadas que ele completou na partida. Deste modo, a meta de João em toda partida é maximizar o número de rodadas que ele completa. Observe que é irrelevante para João se a caixa possui mais ou menos de L bolinhas de gude ao fim da partida.\nJoão quer saber quantos chocolates ele conseguiria ganhar se jogar o desafio da melhor maneira possível. Além disso, como os valores de L, A e B escolhidos por Maria podem variar de uma partida para a outra, ele deseja consultar a resposta para vários valores diferentes de L, A e B.\nSua tarefa é: dada a quantidade P de partidas que João deseja consultar e os parâmetros L, A e B de cada partida, determine, para cada partida, o número máximo de rodadas que João consegue completar. Observe que as partidas são independentes, ou seja, é permitido que João repita o mesmo valor de x em partidas diferentes.",
+    "input": "A primeira linha da entrada contém um único inteiro P, a quantidade de partidas que João deseja consultar.\nAs próximas P linhas descrevem as consultas. A i-ésima destas linhas possui três inteiros Li, Ai e Bi indicando os parâmetros L, A e B, respectivamente, escolhidos para a i-ésima partida.",
+    "output": "Seu programa deverá imprimir P linhas, uma para cada partida, na mesma ordem da entrada. Para cada partida, imprima um único inteiro: o número máximo de rodadas que João consegue completar se ele jogar de forma ótima.",
+    "constraints": "É garantido que todo caso de teste satisfaz as restrições abaixo.\n• 1 ≤ P ≤ 50 000\n• 1 ≤ Li ≤ 1 000 000 000 000 para todo 1 ≤ i ≤ P\n• 1 ≤ Ai ≤ Bi ≤ 2 000 000 000 para todo 1 ≤ i ≤ P",
+    "examples": [
+        {
+            "input": "2\n7 3 7\n8 3 7",
+            "output": "2\n3"
+        },
+        {
+            "input": "1\n10 1 3",
+            "output": "3"
+        },
+        {
+            "input": "4\n20 10 11\n40 1 10\n40 10 20\n5 5 5",
+            "output": "2\n9\n4\n1"
+        }
+    ],
+    "imgs": [],
+    "rating": [
+        0,
+        11,
+        12,
+        26,
+        20,
+        31
+    ],
+    "year": "2025",
+    "level": "Sênior",
+    "period": "Fase 2",
+    "topics": [
+        "matemática",
+        "gulosos",
+        "busca binária"
+    ],
+    "difficulty": "Médio"
+}

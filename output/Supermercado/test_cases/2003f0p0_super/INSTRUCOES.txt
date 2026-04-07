@@ -1,0 +1,16 @@
+INSTRUÇÕES PARA CORREÇÃO - Guilherme Ottoni
+
+Para verificar  se uma  solução para o  problema do  supermercado está
+correta, deve-se  utilizar o programa corrige.c que  se encontra neste
+diretório. Para utilizar este  programa, deve-se compilá-lo para gerar
+um  arquivo  executável,  e  então  executá-lo  na  linha  de  comando
+redirecionando a entrada  padrão para o arquivo de  teste (super.i*) e
+passando o arquivo de saída gerado pela programa do aluno.
+
+ex.: 
+> corrige super.out < super.i1
+
+O programa imprimirá a pontuação obtida,  isto é, 10 se a solução está
+correta e 0 caso contrário.
+
+

@@ -1,7 +1,7 @@
 {
     "title": "Quadrado Mágico",
-    "statement": "Senhor Coelho é conhecido mundialmente pela fabricação de quadrados mágicos de dimensões 3 × 3. Um quadrado é chamado mágico quando a soma dos elementos de uma determinada linha, coluna ou diagonal é sempre igual.\nInfelizmente, assaltantes invadiram recentemente a oficina do Sr. Coelho e roubaram alguns dos números de seus quadrados mágicos. Felizmente os meliantes não conseguiram roubar mais do que 3 números de cada quadrado. Desesperado, pois devia entregar os quadrados naquele dia, o Sr. Coelho veio procurar a sua ajuda para tentar completar os quadrados com os números faltantes.\n\nTarefa\nEscreva um programa que, dado um quadrado mágico com alguns números faltando, determine qual era o quadrado mágico original.",
-    "input": "A entrada contém um único conjunto de testes, que deve ser lido do dispositivo de entrada padrão (normalmente o teclado). A entrada contém três linhas, cada uma contendo três inteiros N (0 ≤ N ≤ 20000). O número zero representa os dígitos que foram roubados. Existem no máximo três números zero na entrada.",
+    "statement": "Senhor Coelho é conhecido mundialmente pela fabricação de quadrados mágicos de dimensões 3 × 3. Um quadrado é chamado mágico quando a soma dos elementos de uma determinada linha, coluna ou diagonal é sempre igual.\nInfelizmente, assaltantes invadiram recentemente a oficina do Sr. Coelho e roubaram alguns dos números de seus quadrados mágicos. Felizmente os meliantes não conseguiram roubar mais do que 3 números de cada quadrado. Desesperado, pois devia entregar os quadrados naquele dia, o Sr. Coelho veio procurar a sua ajuda para tentar completar os quadrados com os números faltantes.\n\nTarefa\n\nEscreva um programa que, dado um quadrado mágico com alguns números faltando, determine qual era o quadrado mágico original.",
+    "input": "A entrada contém um único conjunto de testes, que deve ser lido do dispositivo de entrada padrão (normalmente o teclado). A entrada contém três linhas, cada uma contendo três inteiros N (0 <= N <= 20000). O número zero representa os digitos que foram roubados. Existem no máximo três números zero na entrada.",
     "output": "Seu programa deve imprimir, na saída padrão, três linhas, cada uma contendo três inteiros, descrevendo a configuração original do quadrado mágico.",
     "constraints": "",
     "examples": [
@@ -24,8 +24,8 @@
     "level": "Nível 1",
     "period": "Fase Nacional",
     "topics": [
-        "ad-hoc",
-        "matemática"
+        "matemática",
+        "ad hoc"
     ],
-    "difficulty": "Fácil"
+    "difficulty": "Médio"
 }

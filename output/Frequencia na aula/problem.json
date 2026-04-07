@@ -24,7 +24,8 @@
     "period": "Fase 1",
     "topics": [
         "estruturas de dados",
-        "conjuntos"
+        "set",
+        "ad-hoc"
     ],
     "difficulty": "Fácil"
 }

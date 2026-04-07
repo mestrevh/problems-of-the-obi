@@ -1,9 +1,9 @@
 {
     "title": "Quadrado Mágico",
-    "statement": "Chama-se de quadrado mágico um arranjo, na forma de um quadrado, de N x N números inteiros tal que todas as linhas, colunas e diagonais têm a mesma soma.\nPor exemplo, o quadrado abaixo\n2 7 6\n9 5 1\n4 3 8\né um quadrado mágico de soma 15, pois todas as linhas (2 + 7 + 6 = 15, 9 + 5 + 1 = 15 e 4 + 3 + 8 = 15), colunas (2 + 9 + 4 = 15, 7 + 5 + 3 = 15 e 6 + 1 + 8 = 15) e diagonais (2 + 5 + 8 = 15 e 6 + 5 + 4 = 15) têm a mesma soma (15).\n\nTarefa\nEscreva um programa que, dado um quadrado, determine se ele é magico ou não e qual a soma dele (caso seja mágico).",
+    "statement": "Chama-se de quadrado mágico um arranjo, na forma de um quadrado, de N × N números inteiros tal que todas as linhas, colunas e diagonais têm a mesma soma.\nPor exemplo, o quadrado abaixo\n2 7 6\n9 5 1\n4 3 8\né um quadrado mágico de soma 15, pois todas as linhas (2 + 7 + 6 = 15, 9 + 5 + 1 = 15 e 4 + 3 + 8 = 15), colunas (2 + 9 + 4 = 15, 7 + 5 + 3 = 15 e 6 + 1 + 8 = 15) e diagonais (2 + 5 + 8 = 15 e 6 + 5 + 4 = 15) têm a mesma soma (15).\n\nTarefa\nEscreva um programa que, dado um quadrado, determine se ele é magico ou não e qual a soma dele (caso seja mágico).",
     "input": "A entrada contém um único conjunto de testes, que deve ser lido do dispositivo de entrada padrão (normalmente o teclado). A primeira linha da entrada de cada caso de teste contém um inteiro N (2 < N < 10). As N linhas seguintes contêm N inteiros cada, separados por exatamente um espaço em branco. Os inteiros dentro do quadrado são todos maiores que 0 (zero) e menores que 1.000.",
-    "output": "Seu programa deve imprimir, na saída padrão, uma única linha com um inteiro representando a soma do quadrado mágico ou -1 caso o quadrado não seja mágico.",
-    "constraints": "2 < N < 10\n0 < valores da matriz < 1.000",
+    "output": "Seu programa deve imprimir, na saída padrão, uma única linha com um inteiro representando a soma do quadrado mágico ou −1 caso o quadrado não seja mágico.",
+    "constraints": "",
     "examples": [
         {
             "input": "3\n2 7 6\n9 5 1\n4 3 8",
@@ -21,11 +21,11 @@
     "imgs": [],
     "rating": [],
     "year": "2007",
-    "level": "Nível 1",
+    "level": "N1",
     "period": "Fase 1",
     "topics": [
         "matriz",
-        "simulação"
+        "matemática"
     ],
-    "difficulty": "Fácil"
+    "difficulty": "Médio"
 }

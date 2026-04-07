@@ -14,9 +14,9 @@
     "rating": [],
     "year": "2004",
     "level": "Programação",
-    "period": "Fase Única",
+    "period": "Fase 1",
     "topics": [
-        "estruturas de dados",
+        "lógica",
         "busca"
     ],
     "difficulty": "Médio"

@@ -13,13 +13,13 @@
     "imgs": [],
     "rating": [],
     "year": "1999",
-    "level": "Não definido",
+    "level": "N/A",
     "period": "Fase 1",
     "topics": [
         "grafos",
         "dfs",
         "bfs",
-        "componentes conexos"
+        "componentes conexas"
     ],
     "difficulty": "Médio"
 }

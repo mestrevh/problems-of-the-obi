@@ -24,11 +24,11 @@
         55
     ],
     "year": "2008",
-    "level": "Nível 1",
+    "level": "1",
     "period": "Fase 2",
     "topics": [
-        "geometria computacional",
-        "matemática"
+        "Geometria",
+        "Matemática"
     ],
     "difficulty": "Médio"
 }

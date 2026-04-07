@@ -7,7 +7,7 @@
     "examples": [
         {
             "input": "4 2\n-5\n-12\n0\n6\n7 4\n35\n-35\n5\n100 \n100\n50\n50\n0 0",
-            "output": "Teste 1\n-8 3\n\nTeste 2\n26 75"
+            "output": "Teste 1\n-8 3\n\nTeste 2\n26 75\n"
         }
     ],
     "imgs": [],
@@ -16,8 +16,8 @@
     "level": "",
     "period": "",
     "topics": [
-        "array",
-        "matemática"
+        "ad-hoc",
+        "soma de prefixos"
     ],
     "difficulty": "Fácil"
 }

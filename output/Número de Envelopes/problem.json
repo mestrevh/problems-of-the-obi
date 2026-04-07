@@ -17,14 +17,14 @@
     "imgs": [],
     "rating": [
         30,
-        70
+        80
     ],
     "year": "2009",
-    "level": "PJ",
+    "level": "Júnior",
     "period": "Fase 1",
     "topics": [
-        "array",
-        "busca"
+        "arrays",
+        "lógica"
     ],
     "difficulty": "Fácil"
 }

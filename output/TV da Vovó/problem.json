@@ -7,17 +7,18 @@
     "examples": [
         {
             "input": "3 3\n1 2 3\n4 5 6\n7 8 9\n1 0\n1 -1\n0 0\n3 4\n6 7 8 5\n10 11 12 9\n2 3 4 1\n-3 2\n0 0\n0 0",
-            "output": "Teste 1\n8 9 7 \n2 3 1 \n5 6 4 \n\nTeste 2\n1 2 3 4 \n5 6 7 8 \n9 10 11 12"
+            "output": "Teste 1\n8 9 7 \n2 3 1 \n5 6 4 \n\nTeste 2\n1 2 3 4 \n5 6 7 8 \n9 10 11 12 "
         }
     ],
     "imgs": [],
     "rating": [],
     "year": "2004",
     "level": "Programação",
-    "period": "Fase Única",
+    "period": "Fase 1",
     "topics": [
-        "matrizes",
-        "simulação"
+        "matriz",
+        "simulação",
+        "matemática"
     ],
     "difficulty": "Médio"
 }

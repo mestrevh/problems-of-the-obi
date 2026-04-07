@@ -17,9 +17,10 @@
     "imgs": [],
     "rating": [],
     "year": "2012",
-    "level": "N1",
+    "level": "Nível 1",
     "period": "Fase 2",
     "topics": [
+        "array",
         "matemática",
         "ordenação"
     ],

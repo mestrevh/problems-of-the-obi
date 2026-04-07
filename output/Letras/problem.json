@@ -19,11 +19,9 @@
         }
     ],
     "imgs": [],
-    "rating": [
-        100
-    ],
+    "rating": [],
     "year": "2014",
-    "level": "N1",
+    "level": "Nível 1",
     "period": "Fase 1",
     "topics": [
         "strings",

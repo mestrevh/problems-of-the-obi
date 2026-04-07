@@ -19,11 +19,12 @@
         70
     ],
     "year": "2011",
-    "level": "Nível 1",
+    "level": "1",
     "period": "Fase 2",
     "topics": [
-        "estruturas de dados",
-        "ordenação"
+        "array",
+        "ordenação",
+        "árvore de fenwick"
     ],
-    "difficulty": "Médio"
+    "difficulty": "Difícil"
 }
