@@ -211,5 +211,3 @@ data/*
 !data/example.txt
 gabaritos_obi/*
 !gabaritos_obi/example.txt
-output/*
-!output/example.txt

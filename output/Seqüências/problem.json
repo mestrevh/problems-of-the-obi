@@ -1,0 +1,24 @@
+{
+    "title": "Seqüências",
+    "statement": "Uma seqüência de 0’s e 1’s é chamada de seqüência-H se é composta por um único 0 ou se é composta por um 1 seguido de duas seqüências-H. Por exemplo, 0, 100 e 10100 são seqüências-H, mas 10, 111 e 10010 não são.\n\n1. Tarefa\nSua tarefa é determinar se uma dada seqüência é ou não uma seqüência-H.",
+    "input": "O arquivo SEQ.IN contém vários conjuntos de teste. Cada conjunto de teste é composto por uma única linha, que contém a seqüência a ser testada, composta de dígitos 0’s e 1’s (sem espaços em branco intermediários). O final da seqüência é indicado pelo caractere ‘#’. O final do arquivo de testes é indicado quando o primeiro caractere da linha de teste é ‘#’ (esta última seqüência de teste não é válida e não deve ser processada).",
+    "output": "Seu programa deve produzir um arquivo de saída chamado SEQ.OUT. Para cada conjunto de teste do arquivo de entrada seu programa deve produzir três linhas no arquivo de saída. A primeira linha deve conter um identificador do conjunto de teste, no formato “Teste n”, onde n é numerado a partir de 1. Na segunda linha deve aparecer a palavra “sim” se a seqüência é uma seqüência-H, ou a palavra “nao” se a seqüência não é uma seqüência-H. A terceira linha deve ser deixada em branco. A grafia mostrada no Exemplo de Saída, abaixo, deve ser seguida rigorosamente (note que não são usados acentos).",
+    "constraints": "Não há restrição no comprimento da seqüência a ser testada.",
+    "examples": [
+        {
+            "input": "0#\n10100#\n10010#\n#",
+            "output": "Teste 1\nsim\n\nTeste 2\nsim\n\nTeste 3\nnao\n"
+        }
+    ],
+    "imgs": [],
+    "rating": [],
+    "year": "1999",
+    "level": "",
+    "period": "Fase 2",
+    "topics": [
+        "strings",
+        "recursão",
+        "pilha"
+    ],
+    "difficulty": "Médio"
+}

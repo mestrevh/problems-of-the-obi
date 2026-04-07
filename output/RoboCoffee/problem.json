@@ -1,0 +1,24 @@
+{
+    "title": "RoboCoffee",
+    "statement": "Dona Mercedes, a eficiente funcionária responsável pela distribuição de cafezinho na empresa RoboCamp, fabricante de robôs industriais, vai aposentar-se em breve. Para ocupar a função de Dona Mercedes os engenheiros da empresa adaptaram um robô existente, ao qual acoplaram uma máquina de café. Para diminuir os custos de fabricação, o novo robô tem uma operação bem simples, sendo capaz de apenas três movimentos básicos: ficar parado (para que os empregados possam servir-se de café), andar para a frente, e girar sobre o seu eixo (para colocar-se de frente para o seu próximo ponto destino).\n\nA programação do robô é feita através de uma seqüência de N pontos no plano, numerados de 0 a N-1 (o robô desenvolvido não sobe escadas, mas felizmente a empresa ocupa um único pavimento). Cada ponto é determinado por coordenadas inteiras (X,Y). O ponto i é sempre distinto do ponto i+1, para 0 ≤ i < N, e o ponto N-1 é distinto do ponto 0 (veja a regra 4 abaixo). O robô move-se a partir do ponto 0, através de todos os pontos dados, observando as seguintes regras:\n1) O robô inicia no ponto 0 de frente para o ponto 1;\n2) O robô move-se sempre para a frente;\n3) Chegando ao ponto i (0 ≤ i ≤ N-1) o robô gira sobre seu eixo, no sentido do relógio, de um ângulo α (0o ≤ α < 360o), de modo a ficar de frente para o ponto (i+1) mod N, e faz uma pausa para que os usuários possam servir-se de café;\n4) No final, para completar o percurso, o robô movimenta-se do ponto N-1 para o ponto 0, e gira de modo a ficar de frente para o ponto 1.\n\n1. Tarefa\nSua tarefa é escrever um programa que, dada a seqüência de N pontos no plano que corresponde à programação do robô, determina quantas voltas completas sobre o seu eixo o robô perfaz durante seu percurso.",
+    "input": "O arquivo ROBO.IN contém vários conjuntos de teste. Cada conjunto de teste corresponde a uma programação do robô. A primeira linha de um conjunto de testes contém um inteiro positivo, N, que indica o número de pontos presentes no conjunto de teste. As N linhas seguintes contêm dois inteiros cada, correspondendo ao valor das coordenadas X e Y de um ponto, separados por espaço em branco (-1000 ≤ X ≤ 1000, -1000 ≤ Y ≤ 1000).\n\nO final do arquivo de testes é indicado quando N = 0 (este último conjunto de teste não é válido e não deve ser processado).\n\nO arquivo ROBO.IN contém ao menos um conjunto de teste que deve ser processado.",
+    "output": "Seu programa deve produzir um arquivo de saída chamado ROBO.OUT. Para cada conjunto de teste do arquivo de entrada seu programa deve produzir três linhas no arquivo de saída. A primeira linha deve conter um identificador do conjunto de teste, no formato “Teste n”, onde n é numerado a partir de 1. Na segunda linha deve aparecer o número de rotações completas efetuadas pelo robô durante seu percurso, encontrado pelo seu programa, precedido de “rotacoes:”. A terceira linha deve ser deixada em branco. A grafia mostrada no Exemplo de Saída, abaixo, deve ser seguida rigorosamente (note que não são usados acentos).",
+    "constraints": "1 ≤ N ≤15.000",
+    "examples": [
+        {
+            "input": "4\n1 1\n1 0\n0 0\n0 1\n4\n2 -3\n2 2\n-3 3\n-2 -1\n0",
+            "output": "Teste 1\nrotacoes: 1\n\nTeste 2\nrotacoes: 3\n"
+        }
+    ],
+    "imgs": [],
+    "rating": [],
+    "year": "1999",
+    "level": "",
+    "period": "Fase 2",
+    "topics": [
+        "geometria",
+        "simulação",
+        "matemática"
+    ],
+    "difficulty": "Difícil"
+}

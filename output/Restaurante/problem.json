@@ -1,0 +1,24 @@
+{
+    "title": "Restaurante",
+    "statement": "A UNICOMP (Universidade Independente de Computação) possui vários refeitórios que servem seus milhares de alunos e professores. Para melhorar o atendimento a UNICOMP planeja fazer uma reforma nos refeitórios, mas para isso necessita saber qual o número máximo de pessoas que são atendidas simultaneamente em um mesmo refeitório. Para isso a UNICOMP, que possui catracas eletrônicas, coletou os seguintes dados:\n\n• Um vetor E, ordenado crescentemente, em que E[i] representa o instante de tempo em que a pessoa i entrou no restaurante;\n• Um vetor S, em que S[i] representa o instante de tempo em que a pessoa i saiu do restaurante.\n\nOs elementos de E e S são inteiros positivos que indicam o número de segundos transcorridos desde a abertura do restaurante. A entrada e a saída do restaurante se faz por uma única catraca, onde passa apenas uma pessoa por vez, de maneira que os tempos registrados em E e S são todos distintos.\n\n1. Tarefa\nSua tarefa é escrever um programa que, dados dois vetores de inteiros E e S, ambos de comprimento igual a N, calcula o número máximo de pessoas que estão presentes ao mesmo tempo dentro do restaurante.",
+    "input": "O arquivo REST.IN contém vários conjuntos de teste. Cada conjunto de teste é composto por três linhas. A primeira linha contém um inteiro positivo, N, que indica o comprimento dos vetores E e S, conforme descrito acima. A segunda linha do conjunto de teste contém os elementos do vetor E, separados por espaço em branco, e a terceira linha contém os elementos do vetor S, separados por espaço em branco. O final do arquivo de testes é indicado quando N = 0 (este último conjunto de testes não é válido e não deve ser processado).\n\nO arquivo REST.IN contém ao menos um conjunto de teste que deve ser processado.",
+    "output": "Seu programa deve produzir um arquivo de saída chamado REST.OUT. Para cada conjunto de teste do arquivo de entrada seu programa deve produzir três linhas no arquivo de saída. A primeira linha deve conter um identificador do conjunto de teste, no formato “Teste n”, onde n é numerado a partir de 1. Na segunda linha deve aparecer o número máximo de pessoas presentes simultaneamente no restaurante, encontrado pelo seu programa, precedido por “pessoas:”. A terceira linha deve ser deixada em branco. A grafia mostrada no Exemplo de Saída, abaixo, deve ser seguida rigorosamente.",
+    "constraints": "1 ≤ N ≤ 5.000\n1 ≤ E[i] ≤ 15.000, 1 ≤ i ≤ N\n1 ≤ S[i] ≤ 15.000, 1 ≤ i ≤ N\nE[i] < E[i+1], para 1 ≤ i < N\nE[i] < S[i], para 1 ≤ i ≤ N\nE[i] ≠ S[j], para todo par i e j, 1 ≤ i ≤ N, 1 ≤ j ≤ N\nN = 0 apenas para indicar o fim do arquivo de entrada",
+    "examples": [
+        {
+            "input": "3\n14 67 98\n1890 1900 2123\n2\n200 1800\n1543 2324\n0",
+            "output": "Teste 1\npessoas: 3\n\nTeste 2\npessoas: 1\n"
+        }
+    ],
+    "imgs": [],
+    "rating": [],
+    "year": "1999",
+    "level": "",
+    "period": "Fase 2",
+    "topics": [
+        "array",
+        "ordenação",
+        "sweepline"
+    ],
+    "difficulty": "Fácil"
+}

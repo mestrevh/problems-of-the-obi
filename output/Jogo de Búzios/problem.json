@@ -1,0 +1,23 @@
+{
+    "title": "Jogo de Búzios",
+    "statement": "Búzios são pequenas conchas marinhas utilizadas em jogos esotéricos de predição do futuro. O jogo que nos interessa não é esotérico: ele era jogado, apenas por diversão, por jangadeiros de uma bonita praia do Rio de Janeiro. O jogo é jogado por N jangadeiros sentados ao redor de um círculo. Os jangadeiros são numerados de 1 a N de maneira que o jangadeiro (i+1) está sentado à direita do jangadeiro i, para 1 ≤ i < N. O jogador 1 está sentado à direita do jangadeiro N.\n\nNo início do jogo cada jangadeiro tem um búzio, exceto o jangadeiro K, que tem dois búzios. Em cada movimento, apenas um jangadeiro participa do jogo (chamado jogador da vez). O jogador da vez no primeiro movimento (t =1) é sempre o jangadeiro 1.\n\nO jangadeiro da vez dá um ou dois búzios para o jangadeiro sentado à sua direita. A decisão de dar um ou dois búzios depende do turno: em turnos ímpares (t = 1, 3, 5...) o jangadeiro deve dar um búzio; em turnos pares (t = 2, 4, 6...) o jangadeiro deve dar dois búzios. Se ao terminar seu movimento o jangadeiro ficar sem búzios, ele abandona o jogo.\n\nNós vamos considerar que o jogo termina quando restar apenas um jangadeiro, que é declarado o vencedor do jogo. Por exemplo, para N=5 e K=3, o jogo termina em 10 movimentos, restando ao final apenas o jangadeiro 5, que é declarado vencedor. Note que é possível um jogo chegar a um estado em que, não importa o número de movimentos jogados, o número de jangadeiros não diminui (por exemplo, para N=7 e K=2), mas não vamos considerar estes casos: os jangadeiros utilizam apenas as combinações de N e K que garantidamente levam a um vencedor.\n\n1. Tarefa\nVocê deve escrever um programa que, dados N e K, determine de quantos movimentos o jogo foi composto e qual foi o jangadeiro que venceu o jogo.",
+    "input": "O arquivo JOGO.IN contém vários conjuntos de teste. Cada conjunto de teste é composto por uma única linha, que contém dois inteiros positivos, N e K, correspondendo respectivamente ao número de participantes do jogo e o índice (1 ≤ K ≤ N) do participante que inicia o jogo com dois búzios, conforme descrito acima. O final do arquivo de testes é indicado quando N = K = 0 (este último conjunto de testes não é válido e não deve ser processado).",
+    "output": "Seu programa deve produzir um arquivo de saída chamado JOGO.OUT. Para cada conjunto de teste do arquivo de entrada seu programa deve produzir quatro linhas no arquivo de saída. A primeira linha deve conter um identificador do conjunto de teste, no formato “Teste n”, onde n é numerado a partir de 1. Na segunda linha deve aparecer o número de turnos que compuseram o jogo, precedido de “turnos:”. Na terceira linha deve aparecer o índice do jangadeiro que venceu o jogo, precedido de “vencedor:”. A quarta linha deve ser deixada em branco. A grafia mostrada no Exemplo de Saída, abaixo, deve ser seguida rigorosamente.",
+    "constraints": "2 ≤ N ≤ 15.000\n1 ≤ K ≤ 15.000\nN = 0 e K = 0 apenas para indicar o fim do arquivo de entrada",
+    "examples": [
+        {
+            "input": "3 3\n5 3\n0 0",
+            "output": "Teste 1\nturnos: 2\nvencedor: 3\n\nTeste 2\nturnos: 10\nvencedor: 5\n"
+        }
+    ],
+    "imgs": [],
+    "rating": [],
+    "year": "1999",
+    "level": "",
+    "period": "Fase 2",
+    "topics": [
+        "simulação",
+        "matemática"
+    ],
+    "difficulty": "Difícil"
+}

@@ -1,0 +1,30 @@
+{
+    "title": "Troco",
+    "statement": "Você está num supermercado e está na fila do caixa para comprar alguns produtos. Assim que você termina\nde passar as compras pelo caixa, se lembra que tem várias moedas em seu bolso, algumas repetidas, e fica\npensando se com elas dá para pagar exatamente o valor das compras (para assim se livrar destas moedas e\nficar com os bolsos mais leves). Você consegue pagar o valor exato da conta usando estas moedas?",
+    "input": "A primeira linha da entrada contém dois números inteiros V e M, indicando, respectivamente, o valor final\nda compra e o número de moedas que você tem em seu bolso. A segunda linha contém M números inteiros\nque descrevem o valor Mi de cada moeda existente em seu bolso.",
+    "output": "Seu programa deve imprimir apenas uma linha, contendo apenas um caractere: S caso seja possível pagar o\nvalor exato da conta usando apenas suas moedas, ou N caso contrário.",
+    "constraints": "• 1 ≤ V ≤ 10^5\n• 1 ≤ M ≤ 10^3\n• 1 ≤ Mi ≤ 10^5\n\nInformações sobre a pontuação\n• Para um conjunto de entradas que vale 70 pontos, M ≤ 20",
+    "examples": [
+        {
+            "input": "16 4\n25 10 5 1",
+            "output": "S"
+        },
+        {
+            "input": "20 4\n25 10 5 1",
+            "output": "N"
+        }
+    ],
+    "imgs": [],
+    "rating": [
+        70,
+        30
+    ],
+    "year": "2013",
+    "level": "Nível 1",
+    "period": "Fase 2",
+    "topics": [
+        "programação dinâmica",
+        "mochila"
+    ],
+    "difficulty": "Médio"
+}

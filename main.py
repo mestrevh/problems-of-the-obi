@@ -46,7 +46,7 @@ def baixar_cadernos_pdf():
     print("1. INICIANDO O DOWNLOAD DOS CADERNOS (PDFs)")
     print(f"{'='*40}")
 
-    for ano in range(2000, 2025):
+    for ano in range(1999, 2026):
         print(f"\nBuscando PDFs do ano: {ano}")
 
         for padrao in padroes_url:
@@ -623,10 +623,10 @@ if __name__ == "__main__":
     organizar_test_cases()
 
     # Passo 5: Limpar estrutura dos ZIPs
-    limpar_pastas_test_cases()
+    #limpar_pastas_test_cases()
 
     # Passo 5.5: NOVO - Remover questões sem testes válidos
-    remover_questoes_sem_testes()
+    #remover_questoes_sem_testes()
 
     # Passo 6: Atualizar documento README com status atualizado
     #atualizar_readme()
