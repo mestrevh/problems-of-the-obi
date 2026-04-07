@@ -11,15 +11,13 @@
         }
     ],
     "imgs": [],
-    "rating": [
-        100
-    ],
+    "rating": [],
     "year": "2000",
-    "level": "Programação",
-    "period": "Fase Única",
+    "level": "N1",
+    "period": "Fase 1",
     "topics": [
-        "programação dinâmica",
-        "array"
+        "Programação Dinâmica",
+        "Algoritmo de Kadane"
     ],
     "difficulty": "Médio"
 }

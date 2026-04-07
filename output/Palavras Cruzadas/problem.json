@@ -7,17 +7,18 @@
     "examples": [
         {
             "input": "1 8\n*PASCAL*\n3 3\n*M*\nBIT\n*L*\n5 7\nATOS**J\nMEMORIA\n*COLE*V\n*L**DIA\nLA*VER*\n0 0",
-            "output": "Teste 1\nHorizontais:\n 1. PASCAL\n\nTeste 2\nHorizontais:\n 2. BIT\nVerticais:\n 1. MIL\n\nTeste 3\nHorizontais:\n 1. ATOS\n 6. MEMORIA\n 8. COLE\n 9. DIA\n 11. LA\n 12. VER\nVerticais:\n 1. AM\n 2. TECLA\n 3. OMO\n 4. SOL\n 5. JAVA\n 7. REDE\n 10. IR"
+            "output": "Teste 1\nHorizontais:\n 1. PASCAL\n\nTeste 2\nHorizontais:\n 2. BIT\nVerticais:\n 1. MIL\n\nTeste 3\nHorizontais:\n 1. ATOS\n 6. MEMORIA\n 8. COLE\n 9. DIA\n 11. LA\n 12. VER\nVerticais:\n 1. AM\n 2. TECLA\n 3. OMO\n 4. SOL\n 5. JAVA\n 7. REDE\n 10. IR\n"
         }
     ],
     "imgs": [],
     "rating": [],
     "year": "1999",
-    "level": "N/A",
+    "level": "",
     "period": "Fase 1",
     "topics": [
-        "matriz",
-        "simulação"
+        "simulação",
+        "matrizes",
+        "strings"
     ],
     "difficulty": "Médio"
 }

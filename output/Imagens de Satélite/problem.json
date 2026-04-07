@@ -7,19 +7,18 @@
     "examples": [
         {
             "input": "2 2\n00\n00\n9 15\n000000000000000\n007677888000080\n008000000900000\n006003300080000\n005003300800000\n004000009000600\n034556780005000\n300000000004400\n020000000000000\n0 0",
-            "output": "Teste 1\nNumero de construcoes: 0\n\nTeste 2\nNumero de construcoes: 4"
+            "output": "Teste 1\nNumero de construcoes: 0\n\nTeste 2\nNumero de construcoes: 4\n"
         }
     ],
     "imgs": [],
     "rating": [],
     "year": "1999",
-    "level": "N/A",
+    "level": "",
     "period": "Fase 1",
     "topics": [
         "grafos",
-        "dfs",
-        "bfs",
-        "componentes conexas"
+        "busca em profundidade",
+        "busca em largura"
     ],
     "difficulty": "Médio"
 }

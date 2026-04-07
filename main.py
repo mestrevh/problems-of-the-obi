@@ -88,7 +88,6 @@ def baixar_cadernos_pdf():
                             resposta_pdf = requests.get(
                                 url_completa, stream=True, timeout=15)
                             
-                            caminho_salvar.replace('?', '')
                             
                             if resposta_pdf.status_code == 200:
                                 with open(caminho_salvar, 'wb') as f:
@@ -194,7 +193,9 @@ TEMPLATE ESPERADO:
 
                         if str(aux.get('year')) != str(ano):
                             titulo = f"{titulo}_{ano}"
+                            titulo = titulo.replace('?', '')
                             output_path = Path(f"output/{titulo}")
+                            print(output_path)
 
                 output_path.mkdir(parents=True, exist_ok=True)
                 problemas_mapeados.add((ano, titulo))
@@ -608,7 +609,7 @@ if __name__ == "__main__":
     print("\n🚀 INICIANDO PIPELINE DE AUTOMAÇÃO DA OBI 🚀\n")
 
     # Passo 1: Baixar PDFs
-    baixar_cadernos_pdf()
+    #baixar_cadernos_pdf()
 
     # Passo 2: Mandar para LLM
     #print(f"\n{'='*40}")
