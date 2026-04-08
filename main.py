@@ -630,10 +630,10 @@ if __name__ == "__main__":
     organizar_test_cases()
 
     # Passo 5: Limpar estrutura dos ZIPs
-    #limpar_pastas_test_cases()
+    limpar_pastas_test_cases()
 
     # Passo 5.5: NOVO - Remover questões sem testes válidos
-    #remover_questoes_sem_testes()
+    remover_questoes_sem_testes()
 
     # Passo 6: Atualizar documento README com status atualizado
     #atualizar_readme()
