@@ -25,8 +25,6 @@ for question in output.glob("*"):
         df.loc[df['question'] == nome, ['gabarito', 'img']] = [gabarito, img]
         df.to_csv("check_questions.csv", index=False, encoding='utf-8')
 
-        print("CSV atualizado com sucesso!")
-    
 df = pd.read_csv("check_questions.csv")
 
 counts = {
