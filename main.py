@@ -12,6 +12,8 @@ from dotenv import load_dotenv
 from pathlib import Path
 from google import genai
 from google.genai import types
+import time
+
 
 # Carregar variáveis de ambiente
 load_dotenv()
@@ -87,8 +89,7 @@ def baixar_cadernos_pdf():
                         try:
                             resposta_pdf = requests.get(
                                 url_completa, stream=True, timeout=15)
-                            
-                            
+
                             if resposta_pdf.status_code == 200:
                                 with open(caminho_salvar, 'wb') as f:
                                     for chunk in resposta_pdf.iter_content(chunk_size=8192):
@@ -344,7 +345,8 @@ def baixar_gabaritos():
             print(
                 f"Nenhum gabarito em .zip encontrado para {ano} nas URLs testadas.")
 
-    print(f"\nProcesso finalizado com sucesso! Verifique a pasta 'gabaritos_obi'. Gabaritos encontrados: {count}")
+    print(
+        f"\nProcesso finalizado com sucesso! Verifique a pasta 'gabaritos_obi'. Gabaritos encontrados: {count}")
 
 
 # =====================================================================
@@ -414,6 +416,35 @@ def organizar_test_cases():
 # =====================================================================
 
 
+def limpar_test_cases():
+
+    path_output = Path("output")
+    if not path_output.exists():
+        return
+
+    for pasta_problema in path_output.iterdir():
+        if not pasta_problema.is_dir():
+            continue
+
+        pasta = pasta_problema / "test_cases"
+        for item in pasta.glob("*"):
+            
+            if item.name.isdigit():
+                continue
+            
+            if item.is_file():
+                
+                valid = False
+                for v in ["in", "out", "sol"]:
+                    if v in item.name:
+                        valid = True
+                
+                if item.name != "problem.json" and not valid:
+                    item.unlink()
+                    
+            elif item.is_dir():
+                    shutil.rmtree(item)
+
 def limpar_pastas_test_cases():
     print(f"\n{'='*40}")
     print("5. LIMPANDO E REESTRUTURANDO TEST CASES")
@@ -433,33 +464,108 @@ def limpar_pastas_test_cases():
         if not test_cases_dir.exists():
             continue
 
+        print(f"[Questão: {pasta_problema.name}]")
+
+        # modificando o nome das pastas
+        print("[Modificar os nomes das pastas]")
+        for item in test_cases_dir.rglob("*"):
+            if item.is_dir() and ("test" in item.name.lower()):
+                apenas_numeros = "".join(
+                    letra for letra in item.name if letra.isdigit())
+
+                if apenas_numeros:
+                    novo_caminho = item.parent / apenas_numeros
+
+                    if not novo_caminho.exists():
+                        item.rename(novo_caminho)
+                        print(f"Renomeado: {item.name} -> {novo_caminho.name}")
+                    else:
+                        print(
+                            f"Ignorado: O destino {novo_caminho.name} já existe!")
+        # ------
+
+        # movendo os arquivos
         pastas_numeradas = []
+
         for item in test_cases_dir.rglob("*"):
             if item.is_dir() and item.name.isdigit():
                 pastas_numeradas.append(item)
 
+        pastas_numeradas = list(set(pastas_numeradas))
+        pastas_numeradas.sort(key=lambda p: len(p.parts), reverse=False)
         quantidade_movida = 0
+
         for pasta in pastas_numeradas:
-            destino = test_cases_dir / pasta.name
-            if pasta != destino:
-                if destino.exists():
-                    shutil.rmtree(destino)
-                shutil.move(str(pasta), str(destino))
+            valid = test_cases_dir / pasta.name
+            if (test_cases_dir != pasta.parent) and (not valid.exists()):
+                print("[Diretorio indo para Destino]: ",  pasta)
+                print("[Destino]: ", test_cases_dir)
+                shutil.move(str(pasta), str(test_cases_dir))
                 quantidade_movida += 1
+        # ------
 
-        for item in test_cases_dir.iterdir():
-            if item.is_dir():
-                if not item.name.isdigit():
-                    shutil.rmtree(item)
-            else:
-                # NOVO: Protege o carimbo para ele não ser deletado na limpeza
-                if item.name != ".auto":
-                    item.unlink()
+        # modificar os arquivos in(numero) ou (numero)in
+        for item in test_cases_dir.rglob("*"):
+            if item.is_file() and ("in" in item.name.lower()):
+                apenas_numeros = "".join(
+                    letra for letra in item.name if letra.isdigit())
 
-        if quantidade_movida > 0 or pastas_numeradas:
+                if apenas_numeros:
+                    novo_caminho = item.parent / f"{apenas_numeros}.in"
+
+                    if not novo_caminho.exists():
+                        item.rename(novo_caminho)
+                        print(f"Renomeado: {item.name} -> {novo_caminho.name}")
+                    else:
+                        print(
+                            f"Ignorado: O destino {novo_caminho.name} já existe!")
+        # ------
+
+        # modificar os arquivos out(numero) ou (numero)out
+        for item in test_cases_dir.rglob("*"):
+            if item.is_file() and ("out" in item.name.lower()):
+                apenas_numeros = "".join(
+                    letra for letra in item.name if letra.isdigit())
+
+                if apenas_numeros:
+                    novo_caminho = item.parent / f"{apenas_numeros}.out"
+
+                    if not novo_caminho.exists():
+                        item.rename(novo_caminho)
+                        print(f"Renomeado: {item.name} -> {novo_caminho.name}")
+                    else:
+                        print(
+                            f"Ignorado: O destino {novo_caminho.name} já existe!")
+        # ------
+
+        # modificar os arquivos da pasta que tem in e out
+        for pasta_problema in test_cases_dir.iterdir():
+
+            if pasta_problema.is_dir() and pasta_problema.name.isdigit():
+                numero = pasta_problema.name
+
+                arquivo_in = pasta_problema / "in"
+                arquivo_out = pasta_problema / "out"
+
+                novo_in = pasta_problema / f"{numero}.in"
+                novo_out = pasta_problema / f"{numero}.sol"
+
+                # Renomeia e move o 'in'
+                if arquivo_in.exists():
+                    arquivo_in.rename(novo_in)
+                    print(f" {arquivo_in.name} -> {novo_in.name}")
+
+                # Renomeia e move o 'out'
+                if arquivo_out.exists():
+                    arquivo_out.rename(novo_out)
+                    print(f" {arquivo_out.name} -> {novo_out.name}")
+
+        if quantidade_movida > 0:
             print(
-                f"[{pasta_problema.name}] {len(pastas_numeradas)} casos limpos mantidos.")
+                f"[{pasta_problema.name}] {quantidade_movida} casos limpos mantidos.")
             problemas_processados += 1
+
+    print(f"Problemas processados: {problemas_processados}")
 
 # =====================================================================
 # ETAPA 5.5: REMOÇÃO DE QUESTÕES SEM TEST CASES
@@ -487,7 +593,8 @@ def remover_questoes_sem_testes():
         test_cases_dir = pasta_problema / "test_cases"
 
         # Checa se a pasta test_cases existe e se possui algum arquivo/pasta dentro
-        tem_testes = test_cases_dir.exists() and any(test_cases_dir.iterdir()) and len(list(test_cases_dir.rglob("*"))) > 1
+        tem_testes = test_cases_dir.exists() and any(
+            test_cases_dir.iterdir()) and len(list(test_cases_dir.rglob("*"))) > 1
 
         if not tem_testes:
             print(
@@ -609,33 +716,34 @@ if __name__ == "__main__":
     print("\n🚀 INICIANDO PIPELINE DE AUTOMAÇÃO DA OBI 🚀\n")
 
     # Passo 1: Baixar PDFs
-    baixar_cadernos_pdf()
+    # baixar_cadernos_pdf()
 
     # Passo 2: Mandar para LLM
-    print(f"\n{'='*40}")
-    print("2. EXTRAÇÃO DE DADOS (API GEMINI)")
-    print(f"{'='*40}")
-    path_data = Path("data")
-    pdfs_path = list(path_data.rglob("*.pdf"))
-    
-    while True:    
-        pdfs_path = create_questions(pdfs_path=pdfs_path)
-        if len(pdfs_path) == 0:
-            break
+    # print(f"\n{'='*40}")
+    # print("2. EXTRAÇÃO DE DADOS (API GEMINI)")
+    # print(f"{'='*40}")
+    # path_data = Path("data")
+    # pdfs_path = list(path_data.rglob("*.pdf"))
+
+    # while True:
+    #    pdfs_path = create_questions(pdfs_path=pdfs_path)
+    #    if len(pdfs_path) == 0:
+    #        break
 
     # Passo 3: Baixar ZIPs de gabaritos
-    baixar_gabaritos()
+    #baixar_gabaritos()
 
     # Passo 4: Cruzar ZIPs com Pastas Output
-    organizar_test_cases()
+    #organizar_test_cases()
 
     # Passo 5: Limpar estrutura dos ZIPs
     limpar_pastas_test_cases()
+    #limpar_test_cases()
 
     # Passo 5.5: NOVO - Remover questões sem testes válidos
-    remover_questoes_sem_testes()
+    # remover_questoes_sem_testes()
 
     # Passo 6: Atualizar documento README com status atualizado
-    #atualizar_readme()
+    # atualizar_readme()
 
     print("\n🎉 PIPELINE FINALIZADA COM SUCESSO! 🎉")
