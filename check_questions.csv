@@ -41,7 +41,7 @@ Cadeiras do auditório,ok,x
 Cafeteria,ok,x
 Café com Leite,ok,x
 Caixeiro Viajante,x,x
-Caixinha de palitos,x,x
+Caixinha de palitos,ok,x
 Calculadora,ok,x
 Calculando,ok,x
 Calçada Imperial,ok,x
@@ -115,7 +115,7 @@ Câmeras,ok,x
 Código,ok,x
 Código de compressão,ok,x
 Código_2017,ok,x
-Dança Indígena,x,x
+Dança Indígena,ok,x
 Dança de Formatura,ok,x
 Dario e Xerxes,ok,x
 Decifra,ok,x
@@ -123,7 +123,7 @@ Dengue,ok,x
 Dentista,ok,x
 Desafio cartográfico,ok,x
 Desafio do maior número,ok,x
-Detectando Colisões,x,x
+Detectando Colisões,ok,x
 Detetive,ok,x
 Diagonal,ok,x
 Dieta,ok,x
@@ -149,7 +149,7 @@ Empregos de Júlio,ok,x
 Energia,ok,x
 Entrevistas de emprego,ok,x
 Epidemia,ok,x
-Escada Rolante,x,x
+Escada Rolante,ok,x
 Escada perfeita,ok,x
 Escadaria,ok,x
 Escalonamento ótimo,ok,x
@@ -203,7 +203,7 @@ Hotel,ok,x
 Hotel Nlogônia,ok,x
 Idade de Camila,ok,x
 Imagens de Satélite,x,ok
-Impedido!,x,x
+Impedido!,ok,x
 Impedimento!,x,x
 Insensibilidade,ok,x
 Intervalo Distinto,ok,x
@@ -225,9 +225,9 @@ Labirinto,ok,x
 Lanche na empresa,ok,x
 Leilão,ok,x
 Lençol,ok,x
-Letras,x,x
+Letras,ok,x
 Letras_2015,ok,x
-Linhas Cruzadas,x,x
+Linhas Cruzadas,ok,x
 Linhas de Ônibus,ok,x
 Lista de Chamada,x,x
 Lobo Mau,ok,x
@@ -236,7 +236,7 @@ Lâmpadas,ok,x
 Lâmpadas do hotel,ok,x
 Língua do P,ok,x
 Macaco-prego,ok,x
-Macacos me mordam!,x,x
+Macacos me mordam!,ok,x
 Maior valor,ok,x
 Manchas de pele,ok,x
 Mania de Ímpar,ok,x
@@ -263,15 +263,15 @@ Média e mediana,ok,x
 Média ou mediana,x,x
 Móbile,ok,x
 Móbile_2015,ok,x
-Nota cortada,x,x
+Nota cortada,ok,x
 Nota esquecida,ok,x
 Notas,ok,x
 Notas da Prova,ok,x
 Nova avenida,ok,x
 Número de Envelopes,ok,x
-Número de Erdos,x,x
+Número de Erdos,ok,x
 O Banco Inteligente,ok,x
-O Chefe,x,x
+O Chefe,ok,x
 O Fugitivo,ok,x
 O Tabuleiro Esburacado,ok,x
 O mar não está para peixe,ok,x
@@ -310,7 +310,7 @@ Placar do Jogo,ok,x
 Plano de Internet,ok,x
 Plano de estacionamento,ok,x
 Plantação,x,x
-Plantação de morango,x,x
+Plantação de morango,ok,x
 Pneu,ok,x
 Polígono,x,x
 Ponto do meio,ok,x
@@ -357,11 +357,11 @@ SEDEX,ok,x
 Sacolas,ok,x
 Sacoleiro,ok,x
 Saldo de gols,ok,x
-Saldo do Vovô,x,x
+Saldo do Vovô,ok,x
 Sanduíche,ok,x
 Sanduíche_2021,ok,x
-Sedex Marciano,x,x
-Segredo do Cofre,x,x
+Sedex Marciano,ok,x
+Segredo do Cofre,ok,x
 Selos,ok,x
 Semente,ok,x
 Sequência Secreta,ok,x
@@ -371,7 +371,7 @@ Show,ok,x
 Simulador,ok,x
 Sinuca,ok,x
 Soma,ok,x
-Soma das casas,x,x
+Soma das casas,ok,x
 Soma de Frações,x,x
 Sorvete,ok,x
 Sr. Sapo,ok,x
@@ -435,8 +435,8 @@ Vira!,x,x
 Visita entre cidades,ok,x
 Vivo ou Morto,ok,x
 Volume da TV,x,x
-Xadrez Aleatório,x,x
+Xadrez Aleatório,ok,x
 Zero para cancelar,ok,x
 Zip,ok,x
-Álbum de fotos,x,x
+Álbum de fotos,ok,x
 Ônibus,ok,x
