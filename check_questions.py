@@ -36,6 +36,8 @@ for indice, linha in df.iterrows():
     
     if linha['gabarito'] == "ok":
         counts['g'] += 1
+    else:
+        print(f"{linha['question']} sem gabarito")
     
     if linha['img'] == "ok":
         counts['i'] += 1
