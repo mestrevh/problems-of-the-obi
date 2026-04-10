@@ -10,7 +10,7 @@
             "output": "Teste 1\n2 4 6 3\n\nTeste 2\nnenhum\n"
         }
     ],
-    "imgs": [],
+    "imgs": ["1.png"],
     "rating": [],
     "year": "2000",
     "level": "N1",

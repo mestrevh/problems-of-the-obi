@@ -10,7 +10,7 @@
             "output": "Teste 1\n1\n\nTeste 2\n3"
         }
     ],
-    "imgs": [],
+    "imgs": ["1.png"],
     "rating": [
         100
     ],

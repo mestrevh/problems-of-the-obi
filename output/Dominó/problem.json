@@ -10,7 +10,7 @@
             "output": "Teste 1\nsim\n\nTeste 2\nnao\n\nTeste 3\nsim"
         }
     ],
-    "imgs": [],
+    "imgs": ["1.png"],
     "rating": [],
     "year": "2001",
     "level": "Programação",

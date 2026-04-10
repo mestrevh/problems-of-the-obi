@@ -14,7 +14,7 @@
             "output": "Carlos"
         }
     ],
-    "imgs": [],
+    "imgs": ["1.png"],
     "rating": [
         30,
         60

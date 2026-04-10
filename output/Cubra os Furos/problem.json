@@ -10,7 +10,7 @@
             "output": "Teste 1\n42\n\nTeste 2\n28"
         }
     ],
-    "imgs": [],
+    "imgs": ["1.png"],
     "rating": [],
     "year": "2004",
     "level": "Programação",

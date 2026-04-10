@@ -10,7 +10,7 @@
             "output": "Teste 1\nnormal\n\nTeste 2\nfalha"
         }
     ],
-    "imgs": [],
+    "imgs": ["1.png"],
     "rating": [],
     "year": "2005",
     "level": "2",
