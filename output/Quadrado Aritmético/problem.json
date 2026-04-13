@@ -18,7 +18,7 @@
             "output": "-55"
         }
     ],
-    "imgs": [],
+    "imgs": ["1.png","2.png"],
     "rating": [
         30,
         70
