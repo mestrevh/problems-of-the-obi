@@ -39,12 +39,12 @@ def baixar_cadernos_pdf():
         "fase2/programacao/",
         "fase2b/programacao/",
         "fase3/programacao/",
-        "fase3b/programacao/"
+        "fase3b/programacao/",
         "fase1/programacao/cadernos/",
         "fase2/programacao/cadernos/",
-        "fase3/programacao/cadernos/"
+        "fase3/programacao/cadernos/",
         "fase1/programacao-a/",
-        "fase1/programacao-b/"
+        "fase1/programacao-b/",
     ]
 
     urls_ja_baixadas = set()
@@ -61,7 +61,7 @@ def baixar_cadernos_pdf():
 
             try:
                 response = requests.get(url_pagina, timeout=10)
-
+                print(url_pagina)
                 if response.status_code != 200:
                     continue
 
@@ -392,7 +392,7 @@ def baixar_gabaritos():
 
     # Loop pelos anos (2000 a 2024)
     count = 0
-    for ano in range(2020, 2021):
+    for ano in range(2024, 2025):
         print(f"\n{'='*40}")
         print(f"Buscando gabaritos do ano: {ano}")
         print(f"{'='*40}")
@@ -844,7 +844,7 @@ if __name__ == "__main__":
     print("\n🚀 INICIANDO PIPELINE DE AUTOMAÇÃO DA OBI 🚀\n")
 
     # Passo 1: Baixar PDFs
-    #baixar_cadernos_pdf()
+    baixar_cadernos_pdf()
 
     # Passo 2: Mandar para LLM
     #print(f"\n{'='*40}")
