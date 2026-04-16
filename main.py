@@ -13,7 +13,7 @@ from pathlib import Path
 from google import genai
 from google.genai import types
 import time
-
+from openai import OpenAI
 
 # Carregar variáveis de ambiente
 load_dotenv()
@@ -43,6 +43,8 @@ def baixar_cadernos_pdf():
         "fase1/programacao/cadernos/",
         "fase2/programacao/cadernos/",
         "fase3/programacao/cadernos/"
+        "fase1/programacao-a/",
+        "fase1/programacao-b/"
     ]
 
     urls_ja_baixadas = set()
@@ -116,7 +118,7 @@ def baixar_cadernos_pdf():
 def create_questions(pdfs_path):
     client = genai.Client(api_key=os.getenv("GEMINI_API"))
     modelo_gemini = os.getenv("GEMINI_MODEL")
-
+    
     if not pdfs_path:
         print("Nenhum arquivo PDF encontrado para processar.")
         return []
@@ -222,6 +224,130 @@ TEMPLATE ESPERADO:
 
     return erros
 
+def create_questions_gpt(pdfs_path):
+    client = OpenAI(api_key=os.getenv("GPT_API"))
+    modelo_gpt = os.getenv("GPT_MODEL")
+
+    if not pdfs_path:
+        print("Nenhum arquivo PDF encontrado para processar.")
+        return []
+
+    erros = []
+
+    for pdf_path in pdfs_path:
+        print(f"\n----------------------------------------")
+        print(f"Processando arquivo na LLM: {pdf_path.name}")
+
+        prompt = """
+### PERSONA ###
+Você é um assistente especializado em extrair problemas de programação competitiva de PDFs da Olimpíada Brasileira de Informática (OBI).
+### TASK ###
+Leia o arquivo PDF em anexo e extraia os dados de TODOS os problemas que encontrar no documento.
+Retorne os dados ESTRITAMENTE no formato JSON abaixo, preenchendo com as informações do documento. 
+### RESTRIÇÕES ###
+A sua resposta deve ser um ARRAY (lista) de objetos JSON, onde cada objeto representa um problema diferente.
+Não inclua nenhuma formatação markdown (como ```json) ou texto antes/depois do JSON.
+TEMPLATE ESPERADO:
+    [{
+        "title": "Nome do problema 1",
+        "statement": "Texto completo da descrição do problema (história e regras). Mantenha as quebras de linha usando \\n",
+        "input": "Texto da seção de Entrada",
+        "output": "Texto da seção de Saída",
+        "constraints": "Texto da seção de Restrições",
+        "examples": [
+            {
+                "input": "exemplo de entrada 1",
+                "output": "exemplo de saída 1"
+            }
+            ],
+        "imgs": [],
+        "rating": [int: pontuação subtarefa 0, int: pontuação subtarefa 1, ... , int: pontuação subtarefa n],
+        "year": "2024",
+        "level": "PJ",
+        "period": "Fase 3",
+        "topics": ["array", "programação dinâmica", "grafos" (categorias da questão)]
+        "difficulty": "Difícil [aqui só pode ter 3 valores únicos: Fácil, Médio ou Díficil]"
+    }]"""
+
+        try:
+            print("Fazendo upload do PDF para a API...")
+            with open(pdf_path, "rb") as f:
+                uploaded_file = client.files.create(file=f, purpose="assistants")
+
+            print("Processando o documento com a LLM (isso pode levar um tempo maior por ser o documento todo)...")
+
+            response = client.responses.create(
+                model=modelo_gpt,
+                input=[
+                    {
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "input_file",
+                                "file_id": uploaded_file.id,
+                            },
+                            {
+                                "type": "input_text",
+                                "text": prompt,
+                            },
+                        ],
+                    }
+                ],
+            )
+
+            raw_text = response.output_text.strip()
+            # Strip markdown fences if present
+            if raw_text.startswith("```"):
+                raw_text = raw_text.split("\n", 1)[-1]
+                raw_text = raw_text.rsplit("```", 1)[0]
+
+            dados_json = json.loads(raw_text)
+            quantidade_problemas = len(dados_json) if isinstance(dados_json, list) else 0
+            print(f"Foram encontrados e extraídos {quantidade_problemas} problemas.")
+
+            for output_json in dados_json:
+                titulo = output_json.get('title', 'Desconhecido')
+                ano = output_json.get('year', 'Unknown')
+
+                output_path = Path(f"output/{titulo}")
+
+                # Resolução de conflitos de nome
+                if output_path.exists():
+                    arquivo_antigo = output_path / "problem.json"
+                    if arquivo_antigo.exists():
+                        with open(arquivo_antigo, "r", encoding="utf-8") as f:
+                            aux = json.load(f)
+
+                        if str(aux.get('year')) != str(ano):
+                            titulo = f"{titulo}_{ano}"
+                            titulo = titulo.replace('?', '')
+                            output_path = Path(f"output/{titulo}")
+                            print(output_path)
+
+                output_path.mkdir(parents=True, exist_ok=True)
+                problemas_mapeados.add((ano, titulo))
+
+                with open(f"{str(output_path)}/problem.json", "w", encoding="utf-8") as f:
+                    json.dump(output_json, f, indent=4, ensure_ascii=False)
+
+                print(f"Sucesso! O arquivo '{titulo}' foi gerado.")
+
+        except json.JSONDecodeError:
+            print("Erro: A API não retornou um JSON válido.")
+            print("Resposta bruta:", raw_text)
+            erros.append(pdf_path)
+        except Exception as e:
+            print(f"Erro inesperado durante o processamento: {e}")
+            erros.append(pdf_path)
+        finally:
+            try:
+                client.files.delete(uploaded_file.id)
+                print("Arquivo removido dos servidores da OpenAI.")
+            except:
+                pass
+
+    return erros
+
 # =====================================================================
 # ETAPA 3: DOWNLOAD DOS GABARITOS
 # =====================================================================
@@ -255,7 +381,9 @@ def baixar_gabaritos():
         "fase3/programacao/",
         "fase3/programacao/cadernos/",
         "fase3b/programacao/",
-        "fase3b/programacao/cadernos/"
+        "fase3b/programacao/cadernos/",
+        "fase1/programacao-a/",
+        "fase1/programacao-b/"
     ]
 
     # Conjunto para não baixar o mesmo arquivo duas vezes caso apareça em páginas diferentes
@@ -264,7 +392,7 @@ def baixar_gabaritos():
 
     # Loop pelos anos (2000 a 2024)
     count = 0
-    for ano in range(1999, 2026):
+    for ano in range(2020, 2021):
         print(f"\n{'='*40}")
         print(f"Buscando gabaritos do ano: {ano}")
         print(f"{'='*40}")
@@ -716,19 +844,20 @@ if __name__ == "__main__":
     print("\n🚀 INICIANDO PIPELINE DE AUTOMAÇÃO DA OBI 🚀\n")
 
     # Passo 1: Baixar PDFs
-    baixar_cadernos_pdf()
+    #baixar_cadernos_pdf()
 
     # Passo 2: Mandar para LLM
-    print(f"\n{'='*40}")
-    print("2. EXTRAÇÃO DE DADOS (API GEMINI)")
-    print(f"{'='*40}")
-    path_data = Path("data")
-    pdfs_path = list(path_data.rglob("*.pdf"))
+    #print(f"\n{'='*40}")
+    #print("2. EXTRAÇÃO DE DADOS (API GEMINI)")
+    #print(f"{'='*40}")
+    #path_data = Path("data")
+    #pdfs_path = list(path_data.rglob("*.pdf"))
 
-    while True:
-        pdfs_path = create_questions(pdfs_path=pdfs_path)
-        if len(pdfs_path) == 0:
-            break
+    #while True:
+    #    pdfs_path = create_questions_gpt(pdfs_path=pdfs_path)
+        #pdfs_path = create_questions(pdfs_path=pdfs_path)
+    #    if len(pdfs_path) == 0:
+    #        break
 
     # Passo 3: Baixar ZIPs de gabaritos
     baixar_gabaritos()
