@@ -14,7 +14,9 @@
             "output": "0\n0\n0\n8"
         }
     ],
-    "imgs": [],
+    "imgs": [
+        "Ilustração de um cubo de lado 4 pintado de preto e cortado em cubinhos."
+    ],
     "rating": [
         0,
         30,
@@ -25,7 +27,8 @@
     "period": "Fase 2",
     "topics": [
         "matemática",
-        "geometria"
+        "geometria espacial",
+        "implementação"
     ],
     "difficulty": "Fácil"
 }

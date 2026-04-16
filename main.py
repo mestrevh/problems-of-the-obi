@@ -129,7 +129,6 @@ def create_questions(pdfs_path):
         print(f"\n----------------------------------------")
         print(f"Processando arquivo na LLM: {pdf_path.name}")
 
-        print(pdf_path)
         print("Fazendo upload do PDF para a API...")
         arquivo_pdf = client.files.upload(file=str(pdf_path))
 
@@ -847,17 +846,17 @@ if __name__ == "__main__":
     baixar_cadernos_pdf()
 
     # Passo 2: Mandar para LLM
-    #print(f"\n{'='*40}")
-    #print("2. EXTRAÇÃO DE DADOS (API GEMINI)")
-    #print(f"{'='*40}")
-    #path_data = Path("data")
-    #pdfs_path = list(path_data.rglob("*.pdf"))
+    print(f"\n{'='*40}")
+    print("2. EXTRAÇÃO DE DADOS (API GEMINI)")
+    print(f"{'='*40}")
+    path_data = Path("backup")
+    pdfs_path = list(path_data.rglob("*.pdf"))
 
-    #while True:
-    #    pdfs_path = create_questions_gpt(pdfs_path=pdfs_path)
+    while True:
+        pdfs_path = create_questions_gpt(pdfs_path=pdfs_path)
         #pdfs_path = create_questions(pdfs_path=pdfs_path)
-    #    if len(pdfs_path) == 0:
-    #        break
+        if len(pdfs_path) == 0:
+            break
 
     # Passo 3: Baixar ZIPs de gabaritos
     baixar_gabaritos()
