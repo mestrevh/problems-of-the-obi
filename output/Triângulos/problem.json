@@ -1,6 +1,6 @@
 {
     "title": "Triângulos",
-    "statement": "Caio estava brincando de construir triângulos com palitos de diferentes tamanhos. Ele fazia isso juntando as pontas de três palitos sobre uma mesa. Ele notou que podia agrupar os triângulos formados em três grupos:\n• Triângulos acutângulos, que são aqueles em que todos os ângulos internos medem menos de 90◦;\n• Triângulos retângulos, que são aqueles que possuem um ângulo interno que mede exatamente 90◦;\n• Triângulos obtusângulos, que são aqueles que possuem um ângulo interno que mede mais de 90◦.\nEle também percebeu que nem sempre é possível formar um triângulo com três palitos.\nSua tarefa é, dados os comprimentos A, B e C de três palitos, dizer se é possível formar um triângulo com esses palitos e, em caso afirmativo, dizer a qual grupo o triângulo formado pertence.",
+    "statement": "Caio estava brincando de construir triângulos com palitos de diferentes tamanhos. Ele fazia isso juntando as pontas de três palitos sobre uma mesa. Ele notou que podia agrupar os triângulos formados em três grupos:\n• Triângulos acutângulos, que são aqueles em que todos os ângulos internos medem menos de 90◦;\n• Triângulos retângulos, que são aqueles que possuem um ângulo interno que mede exatamente 90◦;\n• Triângulos obtusângulos, que são aqueles que possuem um ângulo interno que mede mais de 90◦.\nEle também percebeu que nem sempre é possível formar um triângulo com três palitos.\n[1.png]\nSua tarefa é, dados os comprimentos A, B e C de três palitos, dizer se é possível formar um triângulo com esses palitos e, em caso afirmativo, dizer a qual grupo o triângulo formado pertence.",
     "input": "A entrada consiste de uma única linha, contendo três inteiros A, B e C separados por espaço.",
     "output": "Imprima uma linha contendo apenas uma letra minúscula:\n• ‘n’ se não for possível formar um triângulo;\n• ‘a’ se o triângulo formado for acutângulo;\n• ‘r’ se o triângulo formado for retângulo;\n• ‘o’ se o triângulo formado for obtusângulo.",
     "constraints": "• 1 ≤ A ≤ 10^4\n• 1 ≤ B ≤ 10^4\n• 1 ≤ C ≤ 10^4",
@@ -22,7 +22,7 @@
             "output": "o"
         }
     ],
-    "imgs": [],
+    "imgs": ["1.png"],
     "rating": [],
     "year": "2011",
     "level": "Nível 1",
