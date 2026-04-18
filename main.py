@@ -33,18 +33,35 @@ def baixar_cadernos_pdf():
 
     # Padrões de URL cobrindo todas as fases (incluindo as fases B)
     padroes_url = [
+        # Nível Raiz / Geral
         "programacao/",
+        "programacao/cadernos/",
+
+        # Fase 1
         "fase1/programacao/",
-        "fase1b/programacao/",
-        "fase2/programacao/",
-        "fase2b/programacao/",
-        "fase3/programacao/",
-        "fase3b/programacao/",
         "fase1/programacao/cadernos/",
-        "fase2/programacao/cadernos/",
-        "fase3/programacao/cadernos/",
         "fase1/programacao-a/",
         "fase1/programacao-b/",
+
+        # Fase 1b
+        "fase1b/programacao/",
+        "fase1b/programacao/cadernos/",
+
+        # Fase 2
+        "fase2/programacao/",
+        "fase2/programacao/cadernos/",
+
+        # Fase 2b
+        "fase2b/programacao/",
+        "fase2b/programacao/cadernos/",
+
+        # Fase 3
+        "fase3/programacao/",
+        "fase3/programacao/cadernos/",
+
+        # Fase 3b
+        "fase3b/programacao/",
+        "fase3b/programacao/cadernos/"
     ]
 
     urls_ja_baixadas = set()
@@ -367,22 +384,35 @@ def baixar_gabaritos():
 
     # Lista de possíveis caminhos (patterns) que a OBI usou ao longo dos anos
     padroes_url = [
+        # Nível Raiz / Geral
         "programacao/",
         "programacao/cadernos/",
+
+        # Fase 1
         "fase1/programacao/",
         "fase1/programacao/cadernos/",
+        "fase1/programacao-a/",
+        "fase1/programacao-b/",
+
+        # Fase 1b
         "fase1b/programacao/",
         "fase1b/programacao/cadernos/",
+
+        # Fase 2
         "fase2/programacao/",
         "fase2/programacao/cadernos/",
+
+        # Fase 2b
         "fase2b/programacao/",
         "fase2b/programacao/cadernos/",
+
+        # Fase 3
         "fase3/programacao/",
         "fase3/programacao/cadernos/",
+
+        # Fase 3b
         "fase3b/programacao/",
-        "fase3b/programacao/cadernos/",
-        "fase1/programacao-a/",
-        "fase1/programacao-b/"
+        "fase3b/programacao/cadernos/"
     ]
 
     # Conjunto para não baixar o mesmo arquivo duas vezes caso apareça em páginas diferentes

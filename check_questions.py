@@ -4,6 +4,21 @@ import pandas as pd
 df = pd.read_csv("check_questions.csv")
 
 output = Path("Output")
+# obi_bench = Path("obi-bench")
+
+# list_out = []
+# for question in output.glob("*"):
+#     if question.is_dir():
+#         list_out.append(question.name)
+
+# list_obi_bench = []
+# for question in obi_bench.glob("*"):
+#     if question.is_dir():
+#         list_obi_bench.append(question.name)
+
+# for l in list_obi_bench:
+#     if not (l in list_out):
+#         print(l)
 
 for question in output.glob("*"):
     if question.is_dir():
