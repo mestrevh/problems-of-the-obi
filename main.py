@@ -421,7 +421,7 @@ def baixar_gabaritos():
 
     # Loop pelos anos (2000 a 2024)
     count = 0
-    for ano in range(2024, 2025):
+    for ano in range(1999, 2026):
         print(f"\n{'='*40}")
         print(f"Buscando gabaritos do ano: {ano}")
         print(f"{'='*40}")
@@ -900,7 +900,7 @@ if __name__ == "__main__":
 
     # Passo 5.5: NOVO - Remover questões sem testes válidos
     # Só executar caso queira apenas as questões padronizadas
-    # remover_questoes_sem_testes()
+    remover_questoes_sem_testes()
 
     # Passo 6: Atualizar documento README com status atualizado
     # atualizar_readme()
