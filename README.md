@@ -19,9 +19,9 @@ Questões estão em `output`
 
 - **Custo da extração:** aproximadamente R$ 100,00
 - **Modelo utilizado:** Gemini 3.1 pro preview 
-- **Total de questões extraídos:** 441
-- **Quantidade de questões sem casos de teste:** 31
-- **Quantidade de questões com casos de teste:** 412
-- **Quantidade de questões com imagens:** 159
-- **Quantidade de questões sem imagens:** 282
+- **Total de questões extraídos:** 493
+- **Quantidade de questões sem casos de teste:** 25
+- **Quantidade de questões com casos de teste:** 468
+- **Quantidade de questões com imagens:** 159 (desatualizado)
+- **Quantidade de questões sem imagens:** 282 (desatualizado)
 - **Estado atual:** `dataset-questions-obi.zip`, `provas-obi.zip` e `gabaritos-obi.zip`

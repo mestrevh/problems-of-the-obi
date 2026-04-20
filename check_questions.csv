@@ -1,5 +1,6 @@
 question,gabarito,img
 A idade de Dona Mônica,ok,x
+Acelerador de Partículas,ok,ok
 Aeroporto,ok,x
 Alfabeto Alienígena,ok,x
 Altas Aventuras,ok,x
@@ -17,16 +18,22 @@ Avenida,ok,ok
 Avião,ok,ok
 Aviões de papel,ok,x
 Ações da Bolsa,x,x
+Bactérias,ok,x
 Bafo,ok,x
+Baldes,ok,x
 Balé,ok,x
 Banco,ok,x
 Banda,ok,x
 Baralho,ok,x
 Barcos da Nlogônia,ok,x
+Basquete de robôs,ok,x
+Batalha,ok,x
 Batalha Naval,ok,x
+Bingo!,ok,ok
 Bits,ok,x
 Bits Trocados,ok,x
 Blefe,ok,x
+Bolas,ok,x
 Bomba,ok,x
 Bombom,ok,ok
 Bondinho,ok,ok
@@ -48,9 +55,11 @@ Calçada Imperial,ok,ok
 Caminho,ok,x
 Caminho das Pontes,ok,ok
 Caminhos do reino,ok,ok
+Camisetas da Olimpíada,ok,x
 Campeonato,ok,x
-Campo Minado,ok,ok
+Campeonato_2018,ok,x
 Campo de Minhocas,ok,ok
+Campo Minado,ok,ok
 Candidatas,ok,x
 Capitais,ok,ok
 Capital,ok,x
@@ -80,6 +89,7 @@ Chuva_2019,ok,ok
 Chuva_2022,ok,x
 Ciclovias,ok,x
 Cifra da Nlogônia,ok,x
+Cinco,ok,x
 Cinema,ok,ok
 Clube dos Cinco,ok,x
 Cobertura para Celular,ok,x
@@ -93,12 +103,14 @@ Cometa,ok,x
 Competição de chocolate,ok,ok
 Computador,ok,ok
 Concatena Dígitos,ok,x
+Concurso,ok,x
 Consecutivos,ok,x
 Construtora,ok,x
 Construção de Rodovia,ok,ok
 Conta de água,ok,ok
 Contas a pagar,ok,x
 Conversa não tão secreta,ok,x
+Copa,ok,x
 Copa do Mundo,ok,ok
 Copa do Mundo_2014,ok,x
 Corredor,ok,ok
@@ -107,16 +119,18 @@ Corrida_2012,ok,x
 Corrida_2013,ok,x
 Cortando o Papel,ok,ok
 Costa,ok,ok
-Cubo Preto,ok,ok
 Cubo e quadrado,ok,x
+Cubo Preto,ok,ok
 Cubra os Furos,ok,ok
 Cálculo,ok,x
+Cápsulas,ok,x
+Câmara de Compensação,ok,x
 Câmeras,ok,ok
 Código,ok,x
 Código de compressão,ok,x
 Código_2017,ok,x
-Dança Indígena,ok,ok
 Dança de Formatura,ok,ok
+Dança Indígena,ok,ok
 Dario e Xerxes,ok,ok
 Decifra,ok,x
 Dengue,ok,ok
@@ -131,6 +145,7 @@ Direção,ok,x
 Distância de Manhattan,x,x
 Distância entre amigos,ok,ok
 Dividindo o império,ok,ok
+Divisão do Tesouro,ok,x
 Dobradura,ok,ok
 Dominó,ok,ok
 Dominó Nlogônico,ok,x
@@ -141,18 +156,22 @@ Dona Minhoca,ok,ok
 Dona Minhoca_2022,ok,x
 Drone de Entrega,ok,x
 Duende Perdido,ok,ok
-Dupla de tênis,x,x
 Duplas de tênis,ok,x
 Dígitos,ok,x
 Elevador,ok,x
+Elevador_2018,ok,x
+Emoticons,ok,x
 Empregos de Júlio,ok,x
 Energia,ok,x
+Entrega de Caixas,ok,ok
 Entrevistas de emprego,ok,x
 Epidemia,ok,x
-Escada Rolante,ok,x
 Escada perfeita,ok,ok
+Escada Rolante,ok,x
 Escadaria,ok,x
+Escadinha,ok,x
 Escalonamento ótimo,ok,x
+Escher,ok,ok
 Estoque,ok,ok
 Estrada,ok,x
 Estágio,ok,x
@@ -170,9 +189,11 @@ Feira de Bactérias,ok,x
 Feirinha de Artesanato,ok,x
 Festa Junina,ok,x
 Festa olímpica,ok,x
+Figurinhas da copa,ok,x
 Fila,ok,x
 Fila_2015,ok,x
 Fila_2025,ok,ok
+Fissura Perigosa,ok,ok
 Fita Colorida,ok,x
 Fitas Verde-amarelas,ok,ok
 Floresta,ok,ok
@@ -185,10 +206,13 @@ Frequência,ok,x
 Frete,ok,ok
 Frete da Família Silva,ok,ok
 Frota de Táxi,ok,x
+Fuga,ok,x
 Fuga com helicóptero,ok,ok
 Fusões,ok,x
+Game Show,ok,x
 Game-10,ok,ok
 Gangorra,ok,x
+Garamana,ok,x
 Garçom,ok,x
 Gincana,ok,x
 Gincana_2016,ok,x
@@ -202,25 +226,27 @@ Hidrovias e Rodovias,ok,x
 Hotel,ok,x
 Hotel Nlogônia,ok,x
 Idade de Camila,ok,x
+Ilhas,ok,x
 Imagens de Satélite,x,ok
 Impedido!,ok,ok
-Impedimento!,x,x
 Insensibilidade,ok,x
 Intervalo Distinto,ok,x
+Irmãos,ok,x
 Janela,x,ok
 Jardim de infância,ok,ok
 Jogo,ok,x
 Jogo da Memória,ok,x
+Jogo da Vida,ok,ok
 Jogo de Búzios,x,x
 Jogo de Cartas,ok,ok
 Jogo de Dominós,ok,ok
+Jogo de par ou ímpar,ok,x
 Jogo de Pratos,ok,x
 Jogo de Tabuleiro,ok,ok
-Jogo de par ou ímpar,ok,x
 Jogo do Poder,ok,x
 Jogo do Preto e Branco,ok,ok
-Jogo dos Pinos,ok,ok
 Jogo dos copos,ok,ok
+Jogo dos Pinos,ok,ok
 Labirinto,ok,x
 Lanche na empresa,ok,x
 Leilão,ok,x
@@ -238,6 +264,7 @@ Língua do P,ok,x
 Macaco-prego,ok,ok
 Macacos me mordam!,ok,ok
 Maior valor,ok,x
+Mancha,ok,x
 Manchas de pele,ok,ok
 Mania de Ímpar,ok,x
 Mapa,ok,x
@@ -246,6 +273,7 @@ Maratona,ok,x
 Margaridas,ok,x
 Matriz Escada,ok,x
 Matriz super-legal,ok,x
+Maximin,ok,x
 Medalhas,ok,ok
 Mesa redonda,ok,ok
 Meteoros,ok,x
@@ -257,12 +285,13 @@ Mini-Poker,ok,x
 Monopólio,ok,x
 Montanha,ok,ok
 Multiplicação de matrizes,x,x
+Muro,ok,x
 Museu,ok,x
 Musical,ok,x
 Média e mediana,ok,x
-Média ou mediana,x,x
 Móbile,ok,ok
 Móbile_2015,ok,ok
+Música para Todos,ok,x
 Nota cortada,ok,ok
 Nota esquecida,ok,x
 Notas,ok,x
@@ -273,21 +302,23 @@ Número de Erdos,ok,x
 O Banco Inteligente,ok,x
 O Chefe,ok,ok
 O Fugitivo,ok,x
-O Tabuleiro Esburacado,ok,ok
 O mar não está para peixe,ok,x
+O Tabuleiro Esburacado,ok,ok
 OBI,ok,x
 Oficina Mecânica,ok,x
 Ogro,ok,x
 Ogros,ok,x
+Ogro_2024,ok,x
 Olimpíadas,ok,x
 Orkut,ok,x
 Ortografia,ok,x
 Overflow,ok,x
+Paciente Zero,ok,x
 PacMan,ok,x
 Palavras Cruzadas,x,ok
 Palavras Cruzadas_2020,ok,ok
 Palíndrome,ok,x
-Palíndromo,x,x
+Pandemia,ok,x
 Pangrama,ok,x
 Par ou ímpar,ok,x
 Parcelamento sem juros,ok,x
@@ -299,16 +330,21 @@ Pedido de Desculpas,ok,x
 Pedágio,ok,x
 Pedágio_2010,ok,x
 Penalidade mínima,ok,x
+Pesos,ok,x
 Peça Perdida,ok,x
 Pilhas de moedas,ok,x
+Piloto Automático,ok,ok
 Pirâmide,ok,ok
+Pirâmide_2018,ok,x
 Pirâmide_2023,ok,ok
+Piso da escola,ok,x
 Pizza,ok,ok
 Pizza da OBI,ok,x
 Pizzaria,ok,ok
 Placar do Jogo,ok,x
-Plano de Internet,ok,x
+Placas de Carro,ok,x
 Plano de estacionamento,ok,x
+Plano de Internet,ok,x
 Plantação,x,x
 Plantação de morango,ok,x
 Pneu,ok,x
@@ -318,9 +354,11 @@ Postes,ok,x
 Prefixo,ok,x
 Progressões Aritméticas,ok,x
 Projeto Genoma,x,x
+Promoção de Primeira,ok,x
 Proteja sua senha,ok,ok
 Prêmio,ok,x
 Prêmio do Milhão,ok,x
+Pulo do Gato,ok,x
 Pulo do Sapo,ok,x
 Pão a Metro,ok,x
 "Pô, que mão",ok,x
@@ -336,12 +374,18 @@ Quase primo,ok,x
 Quebra-cabeça,ok,ok
 Quebra-cabeças,ok,x
 Quermesse,ok,x
+Ralouim,ok,x
 Recarga,ok,x
 Receita de Bolo,ok,x
+Recibo de Compra,ok,x
 Rede Social,ok,x
 Rede ótica,ok,ok
 Redes de Descanso,ok,ok
 Reduzindo detalhes em um mapa,ok,ok
+Relógio,ok,x
+Relógio de Atleta,ok,x
+Relógios,ok,x
+Remove Dígitos,ok,x
 Repositórios,ok,x
 Restaurante,x,x
 Restaurante de pizza,ok,x
@@ -353,17 +397,19 @@ Robô,ok,x
 Robô_2021,ok,ok
 Rodovia,ok,x
 Rodovia_2022,ok,ok
-SEDEX,ok,x
 Sacolas,ok,x
 Sacoleiro,ok,x
+Salada de Frutas,ok,x
 Saldo de gols,ok,x
 Saldo do Vovô,ok,x
 Sanduíche,ok,x
 Sanduíche_2021,ok,x
+SEDEX,ok,x
 Sedex Marciano,ok,x
 Segredo do Cofre,ok,ok
 Selos,ok,x
 Semente,ok,ok
+Sequência,ok,x
 Sequência Secreta,ok,ok
 Seqüências,x,x
 Setas,ok,ok
@@ -381,7 +427,6 @@ Subcadeias,ok,x
 Subsequência,ok,x
 Supermercado,ok,ok
 Supermercado_2019,ok,x
-TV da Vovó,ok,ok
 Tabela do campeonato,ok,x
 Tacos de bilhar,ok,x
 Tacógrafo,ok,x
@@ -418,11 +463,15 @@ Transportes,ok,ok
 Trem da mina,ok,x
 Trilhas,ok,ok
 Trio de Bonecas,ok,ok
+Trio de Palitinhos,ok,x
 Triângulo,ok,x
 Triângulos,ok,ok
+Troca,ok,x
 Troco,x,x
 Troféu,ok,x
 Truco,ok,x
+Três por Dois,ok,x
+TV da Vovó,ok,ok
 Uiquipédia,ok,x
 Um Desafio Muito Distinto,ok,x
 VAR,ok,ok
@@ -435,8 +484,11 @@ Vira!,x,ok
 Visita entre cidades,ok,ok
 Vivo ou Morto,ok,x
 Volume da TV,x,x
+Wifi,ok,x
+Xadrez,ok,x
 Xadrez Aleatório,ok,ok
 Zero para cancelar,ok,ok
 Zip,ok,x
+Álbum da copa,ok,x
 Álbum de fotos,ok,ok
 Ônibus,ok,ok

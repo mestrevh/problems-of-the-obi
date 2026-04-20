@@ -1,8 +1,6 @@
 from pathlib import Path
 import pandas as pd
 
-df = pd.read_csv("check_questions.csv")
-
 output = Path("Output")
 # obi_bench = Path("obi-bench")
 
@@ -20,26 +18,37 @@ output = Path("Output")
 #     if not (l in list_out):
 #         print(l)
 
+
+list_name = []
+list_gabarito = []
+list_imgs = []
 for question in output.glob("*"):
     if question.is_dir():
         nome = question.name
-        
+        list_name.append(nome)
+
         gabarito = "x"
-        
+
         test_cases = question / "test_cases"
-        
+
         if test_cases.exists():
             gabarito = "ok"
-        
+
         img = "x"
         imgs = question / "imgs"
-        
+
         if imgs.exists():
             img = "ok"
         
-        df.loc[df['question'] == nome, ['gabarito', 'img']] = [gabarito, img]
-        df.to_csv("check_questions.csv", index=False, encoding='utf-8')
+        list_gabarito.append(gabarito)
+        list_imgs.append(img)
 
+        
+
+df = pd.DataFrame({'question': list_name,
+                   'gabarito': list_gabarito,
+                   'img': list_imgs})
+df.to_csv("check_questions.csv", index=False, encoding='utf-8')
 df = pd.read_csv("check_questions.csv")
 
 counts = {
@@ -48,12 +57,12 @@ counts = {
 }
 
 for indice, linha in df.iterrows():
-    
+
     if linha['gabarito'] == "ok":
         counts['g'] += 1
     else:
         print(f"{linha['question']} sem gabarito")
-    
+
     if linha['img'] == "ok":
         counts['i'] += 1
 
