@@ -22,6 +22,6 @@ Questões estão em `output`
 - **Total de questões extraídos:** 493
 - **Quantidade de questões sem casos de teste:** 25
 - **Quantidade de questões com casos de teste:** 468
-- **Quantidade de questões com imagens:** 159 (desatualizado)
-- **Quantidade de questões sem imagens:** 282 (desatualizado)
+- **Quantidade de questões com imagens:** 188
+- **Quantidade de questões sem imagens:** 305
 - **Estado atual:** `dataset-questions-obi.zip`, `provas-obi.zip` e `gabaritos-obi.zip`

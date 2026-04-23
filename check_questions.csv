@@ -20,20 +20,20 @@ Aviões de papel,ok,x
 Ações da Bolsa,x,x
 Bactérias,ok,x
 Bafo,ok,x
-Baldes,ok,x
+Baldes,ok,ok
 Balé,ok,x
 Banco,ok,x
 Banda,ok,x
 Baralho,ok,x
 Barcos da Nlogônia,ok,x
-Basquete de robôs,ok,x
+Basquete de robôs,ok,ok
 Batalha,ok,x
 Batalha Naval,ok,x
 Bingo!,ok,ok
 Bits,ok,x
 Bits Trocados,ok,x
 Blefe,ok,x
-Bolas,ok,x
+Bolas,ok,ok
 Bomba,ok,x
 Bombom,ok,ok
 Bondinho,ok,ok
@@ -57,7 +57,7 @@ Caminho das Pontes,ok,ok
 Caminhos do reino,ok,ok
 Camisetas da Olimpíada,ok,x
 Campeonato,ok,x
-Campeonato_2018,ok,x
+Campeonato_2018,ok,ok
 Campo de Minhocas,ok,ok
 Campo Minado,ok,ok
 Candidatas,ok,x
@@ -89,7 +89,7 @@ Chuva_2019,ok,ok
 Chuva_2022,ok,x
 Ciclovias,ok,x
 Cifra da Nlogônia,ok,x
-Cinco,ok,x
+Cinco,ok,ok
 Cinema,ok,ok
 Clube dos Cinco,ok,x
 Cobertura para Celular,ok,x
@@ -110,7 +110,7 @@ Construção de Rodovia,ok,ok
 Conta de água,ok,ok
 Contas a pagar,ok,x
 Conversa não tão secreta,ok,x
-Copa,ok,x
+Copa,ok,ok
 Copa do Mundo,ok,ok
 Copa do Mundo_2014,ok,x
 Corredor,ok,ok
@@ -123,8 +123,8 @@ Cubo e quadrado,ok,x
 Cubo Preto,ok,ok
 Cubra os Furos,ok,ok
 Cálculo,ok,x
-Cápsulas,ok,x
-Câmara de Compensação,ok,x
+Cápsulas,ok,ok
+Câmara de Compensação,ok,ok
 Câmeras,ok,ok
 Código,ok,x
 Código de compressão,ok,x
@@ -159,7 +159,7 @@ Duende Perdido,ok,ok
 Duplas de tênis,ok,x
 Dígitos,ok,x
 Elevador,ok,x
-Elevador_2018,ok,x
+Elevador_2018,ok,ok
 Emoticons,ok,x
 Empregos de Júlio,ok,x
 Energia,ok,x
@@ -206,10 +206,10 @@ Frequência,ok,x
 Frete,ok,ok
 Frete da Família Silva,ok,ok
 Frota de Táxi,ok,x
-Fuga,ok,x
+Fuga,ok,ok
 Fuga com helicóptero,ok,ok
 Fusões,ok,x
-Game Show,ok,x
+Game Show,ok,ok
 Game-10,ok,ok
 Gangorra,ok,x
 Garamana,ok,x
@@ -264,7 +264,7 @@ Língua do P,ok,x
 Macaco-prego,ok,ok
 Macacos me mordam!,ok,ok
 Maior valor,ok,x
-Mancha,ok,x
+Mancha,ok,ok
 Manchas de pele,ok,ok
 Mania de Ímpar,ok,x
 Mapa,ok,x
@@ -285,7 +285,7 @@ Mini-Poker,ok,x
 Monopólio,ok,x
 Montanha,ok,ok
 Multiplicação de matrizes,x,x
-Muro,ok,x
+Muro,ok,ok
 Museu,ok,x
 Musical,ok,x
 Média e mediana,ok,x
@@ -330,14 +330,14 @@ Pedido de Desculpas,ok,x
 Pedágio,ok,x
 Pedágio_2010,ok,x
 Penalidade mínima,ok,x
-Pesos,ok,x
+Pesos,ok,ok
 Peça Perdida,ok,x
 Pilhas de moedas,ok,x
 Piloto Automático,ok,ok
 Pirâmide,ok,ok
 Pirâmide_2018,ok,x
 Pirâmide_2023,ok,ok
-Piso da escola,ok,x
+Piso da escola,ok,ok
 Pizza,ok,ok
 Pizza da OBI,ok,x
 Pizzaria,ok,ok
@@ -358,7 +358,7 @@ Promoção de Primeira,ok,x
 Proteja sua senha,ok,ok
 Prêmio,ok,x
 Prêmio do Milhão,ok,x
-Pulo do Gato,ok,x
+Pulo do Gato,ok,ok
 Pulo do Sapo,ok,x
 Pão a Metro,ok,x
 "Pô, que mão",ok,x
@@ -384,8 +384,8 @@ Redes de Descanso,ok,ok
 Reduzindo detalhes em um mapa,ok,ok
 Relógio,ok,x
 Relógio de Atleta,ok,x
-Relógios,ok,x
-Remove Dígitos,ok,x
+Relógios,ok,ok
+Remove Dígitos,ok,ok
 Repositórios,ok,x
 Restaurante,x,x
 Restaurante de pizza,ok,x
@@ -463,10 +463,10 @@ Transportes,ok,ok
 Trem da mina,ok,x
 Trilhas,ok,ok
 Trio de Bonecas,ok,ok
-Trio de Palitinhos,ok,x
+Trio de Palitinhos,ok,ok
 Triângulo,ok,x
 Triângulos,ok,ok
-Troca,ok,x
+Troca,ok,ok
 Troco,x,x
 Troféu,ok,x
 Truco,ok,x
@@ -484,8 +484,8 @@ Vira!,x,ok
 Visita entre cidades,ok,ok
 Vivo ou Morto,ok,x
 Volume da TV,x,x
-Wifi,ok,x
-Xadrez,ok,x
+Wifi,ok,ok
+Xadrez,ok,ok
 Xadrez Aleatório,ok,ok
 Zero para cancelar,ok,ok
 Zip,ok,x
