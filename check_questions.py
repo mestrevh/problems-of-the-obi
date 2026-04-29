@@ -40,6 +40,9 @@ for question in output.glob("*"):
         if imgs.exists():
             img = "ok"
         
+        if img == "ok" and gabarito == "x":
+            print(f"Questão com imagem e sem gabarito: {nome}")
+        
         list_gabarito.append(gabarito)
         list_imgs.append(img)
 
