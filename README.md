@@ -15,7 +15,8 @@ Este repositório cataloga e estrutura os problemas passados da OBI para a reali
 
 ## Resultados
 
-Questões estão em `output`
+Questões estão ficaram no diretorio `output`
+Os resultados que estão em `dataset-questions-obi.zip` teve uma verificação manual para adicionar imagens
 
 - **Custo da extração:** aproximadamente R$ 100,00
 - **Modelo utilizado:** Gemini 3.1 pro preview 

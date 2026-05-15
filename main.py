@@ -883,8 +883,8 @@ if __name__ == "__main__":
     pdfs_path = list(path_data.rglob("*.pdf"))
 
     while True:
-        pdfs_path = create_questions_gpt(pdfs_path=pdfs_path)
-        #pdfs_path = create_questions(pdfs_path=pdfs_path)
+        #pdfs_path = create_questions_gpt(pdfs_path=pdfs_path)
+        pdfs_path = create_questions(pdfs_path=pdfs_path)
         if len(pdfs_path) == 0:
             break
 
